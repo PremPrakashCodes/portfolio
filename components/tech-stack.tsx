@@ -207,7 +207,7 @@ export default function TechStack() {
                 />
                 
                 {/* Card Content */}
-                <div className="relative h-full space-y-6 bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
+                <div className="relative h-full space-y-4 bg-black/60 p-5 sm:p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
                   {/* Category Header */}
                   <div className="flex items-center gap-4">
                     <motion.div
@@ -223,7 +223,7 @@ export default function TechStack() {
                   </div>
 
                   {/* Technologies Grid */}
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap !mt-8 gap-3">
                     {technologies
                       .filter((tech) => tech.category === category.id)
                       .map((tech, index) => (
@@ -245,14 +245,14 @@ export default function TechStack() {
                               scale: 1.05,
                               y: -2,
                             }}
-                            className={`group/tech px-4 py-2.5 rounded-xl text-sm bg-white/[0.03] border border-white/10 
+                            className={`group/tech px-4 py-2 rounded-full text-sm bg-white/[0.03] border border-white/10 
                               hover:border-white/20 transition-all duration-300 flex items-center gap-2.5
                               hover:shadow-lg hover:shadow-${category.color}/5 backdrop-blur-xl cursor-pointer`}
                           >
-                            <span className={`text-lg`}>
+                            <span className="text-lg">
                               {tech.icon}
                             </span>
-                            <span className="text-white/90 font-medium">
+                            <span className="text-white font-medium text-[11px] sm:text-xs whitespace-nowrap antialiased">
                               {tech.name}
                             </span>
                           </motion.div>

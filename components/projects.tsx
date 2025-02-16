@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
@@ -75,10 +74,10 @@ export default function Projects() {
                 className="group relative h-full"
               >
                 {/* Gradient background that shows on hover */}
-                <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-[32px] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200" style={{ opacity: 0.05 }} />
+                <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200" style={{ opacity: 0.05 }} />
                 
                 {/* Card Content */}
-                <div className="relative h-full flex flex-col bg-black/40 p-8 rounded-[32px] border border-white/10 backdrop-blur-xl">
+                <div className="relative h-full flex flex-col bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
                   {/* Project Header */}
                   <div className="flex items-center gap-4">
                     <motion.div
