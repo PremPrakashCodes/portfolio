@@ -87,7 +87,7 @@ export default function Blogs() {
                 <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200" style={{ opacity: 0.05 }} />
                 
                 {/* Card Content */}
-                <div className="relative h-full flex flex-col bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
+                <div className="relative h-full flex flex-col bg-gray-950 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
                   <div className="flex flex-col h-full min-h-64">
                     {/* Meta information */}
                     <div className="flex items-center gap-4 text-sm text-zinc-400">

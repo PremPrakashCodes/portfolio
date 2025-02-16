@@ -76,7 +76,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative p-8 rounded-[32px] bg-black/40 border border-white/10 backdrop-blur-xl"
+              className="relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-blue-500/10 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-500" />
               
