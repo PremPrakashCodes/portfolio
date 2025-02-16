@@ -47,7 +47,7 @@ export default function Blogs() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="space-y-16"
         >
@@ -56,7 +56,7 @@ export default function Blogs() {
               className="text-4xl md:text-5xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent animate-shimmer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              // viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               Latest Blog Posts
@@ -65,7 +65,7 @@ export default function Blogs() {
               className="mx-auto max-w-[700px] text-gray-400 md:text-lg/relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              // viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               Thoughts, tutorials and insights about web development
@@ -79,7 +79,7 @@ export default function Blogs() {
                 href={post.link}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                // viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative flex flex-col"
               >

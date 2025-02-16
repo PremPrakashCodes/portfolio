@@ -46,7 +46,7 @@ export default function Projects() {
               className="text-4xl md:text-5xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent animate-shimmer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              
               transition={{ duration: 0.5 }}
             >
               Featured Projects
@@ -55,7 +55,7 @@ export default function Projects() {
               className="text-gray-400 md:text-lg/relaxed max-w-[700px] mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+             
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               Here are some of my recent projects that showcase my technical skills and problem-solving abilities.
@@ -69,7 +69,7 @@ export default function Projects() {
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative h-full"
               >
@@ -105,7 +105,6 @@ export default function Projects() {
                           key={tag}
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
                           transition={{
                             duration: 0.3,
                             delay: index * 0.05,
