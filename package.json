@@ -8,17 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwindcss": "latest",
     "@radix-ui/react-slot": "^1.1.2",
     "autoprefixer": "^10.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.4.3",
     "lucide-react": "^0.475.0",
+    "next": "latest",
     "postcss": "^8.4.0",
+    "react": "latest",
+    "react-dom": "latest",
     "tailwind-merge": "^3.0.1",
+    "tailwindcss": "latest",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
