@@ -31,7 +31,7 @@ const NavBar = () => {
       scrolled ? 'bg-background/80 backdrop-blur-lg shadow-lg' : 'bg-background/0'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo - Responsive size */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
