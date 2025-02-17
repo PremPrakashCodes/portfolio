@@ -1,25 +1,22 @@
 export const experienceData = [
   {
-    title: "Full Stack Developer",
-    company: "Tech Company",
-    location: "Remote",
+    title: "Software Developer",
+    company: "BigCircle",
+    location: "Gandhinagar, India",
     description: [
-      "Developed and maintained full-stack web applications using React, Node.js, and TypeScript",
-      "Implemented responsive UI designs and improved application performance",
-      "Collaborated with cross-functional teams to deliver high-quality software solutions",
+      "Designed, Developed, and Maintained robust software applications, ensuring high performance and scalability.",
     ],
-    date: "2023 - Present",
+    date: "Oct 2024 - Present",
   },
   {
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    location: "Bangalore, India",
+    title: "Freelancer",
+    company: "Self-Employed",
+    location: "Remote",
     description: [
-      "Built responsive and interactive user interfaces using React and Next.js",
-      "Optimized website performance and implemented SEO best practices",
-      "Worked closely with designers to implement pixel-perfect UI components",
+      "Designed and Developed web applications using modern technologies like Next.js, TypeScript, and Tailwind CSS.",
+      "Configured AWS services, such as EC2, S3, and Amplify, to streamline development and deployment processes."
     ],
-    date: "2022 - 2023",
+    date: "Aug 2023 - Oct 2024",
   },
 ] as const;
 

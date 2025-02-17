@@ -1,35 +1,56 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AiOutlineDatabase } from "react-icons/ai";
+import Link from 'next/link';
 import {
   FaAws, FaCloud,
+  FaCode,
   FaDatabase,
   FaDocker, FaGitAlt,
-  FaNodeJs, FaPython,
+  FaJava,
+  FaNodeJs,
   FaReact
 } from "react-icons/fa";
 import {
-  SiCplusplus,
-  SiDjango,
   SiExpress,
+  SiGraphql,
+  SiJavascript,
   SiMongodb,
+  SiMysql,
   SiNextdotjs,
-  SiPostgresql, SiRedis,
+  SiPostgresql,
   SiRedux,
   SiTailwindcss,
   SiTypescript
 } from "react-icons/si";
-import Link from 'next/link';
 
 interface Technology {
   name: string;
-  category: "frontend" | "backend" | "database" | "devops";
+  category: "language" | "frontend" | "backend" | "database" | "devops";
   icon: React.ReactNode;
   link: string;
 }
 
 const technologies: Technology[] = [
+  // Languages
+  {
+    name: "Java",
+    category: "language",
+    icon: <FaJava className="w-5 h-5 text-orange-400" />,
+    link: "https://www.java.com"
+  },
+  {
+    name: "JavaScript",
+    category: "language",
+    icon: <SiJavascript className="w-5 h-5 text-yellow-400" />,
+    link: "https://www.javascript.com"
+  },
+  {
+    name: "TypeScript",
+    category: "language",
+    icon: <SiTypescript className="w-5 h-5 text-blue-400" />,
+    link: "https://www.typescript.com"
+  },
   // Frontend
   { 
     name: "React", 
@@ -42,12 +63,6 @@ const technologies: Technology[] = [
     category: "frontend", 
     icon: <SiNextdotjs className="w-5 h-5 text-white" />,
     link: "https://nextjs.org"
-  },
-  { 
-    name: "TypeScript", 
-    category: "frontend", 
-    icon: <SiTypescript className="w-5 h-5 text-blue-400" />,
-    link: "https://www.typescriptlang.org"
   },
   { 
     name: "Tailwind CSS", 
@@ -76,22 +91,16 @@ const technologies: Technology[] = [
     link: "https://expressjs.com"
   },
   { 
-    name: "Python", 
+    name: "REST APIs", 
     category: "backend", 
-    icon: <FaPython className="w-5 h-5 text-yellow-400" />,
-    link: "https://www.python.org"
+    icon: <FaAws className="w-5 h-5 text-yellow-400" />,
+    link: "https://www.amazonwebservices.com"
   },
   { 
-    name: "Django", 
+    name: "GraphQL", 
     category: "backend", 
-    icon: <SiDjango className="w-5 h-5 text-green-500" />,
-    link: "https://www.djangoproject.com"
-  },
-  { 
-    name: "C++", 
-    category: "backend", 
-    icon: <SiCplusplus className="w-5 h-5 text-blue-500" />,
-    link: "https://isocpp.org"
+    icon: <SiGraphql className="w-5 h-5 text-pink-400" />,
+    link: "https://www.graphql.com"
   },
   
   // Database
@@ -108,16 +117,10 @@ const technologies: Technology[] = [
     link: "https://www.postgresql.org"
   },
   { 
-    name: "Redis", 
+    name: "MySQL", 
     category: "database", 
-    icon: <SiRedis className="w-5 h-5 text-red-500" />,
-    link: "https://redis.io"
-  },
-  { 
-    name: "SQL", 
-    category: "database", 
-    icon: <AiOutlineDatabase className="w-5 h-5 text-orange-400" />,
-    link: "https://www.w3schools.com/sql"
+    icon: <SiMysql className="w-5 h-5 text-orange-400" />,
+    link: "https://www.mysql.com"
   },
   
   // DevOps
@@ -142,6 +145,7 @@ const technologies: Technology[] = [
 ];
 
 const categories = [
+  {id: "language", name: "Languages", color: "from-red-500 to-rose-400", icon: <FaCode className="w-6 h-6" /> },
   { id: "frontend", name: "Frontend Development", color: "from-blue-500 to-cyan-400", icon: <FaReact className="w-6 h-6" /> },
   { id: "backend", name: "Backend Development", color: "from-green-500 to-emerald-400", icon: <FaNodeJs className="w-6 h-6" /> },
   { id: "database", name: "Database", color: "from-orange-500 to-yellow-400", icon: <FaDatabase className="w-6 h-6" /> },

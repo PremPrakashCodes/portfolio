@@ -6,29 +6,21 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform built with Next.js, TypeScript, and Tailwind CSS. Features include user authentication, product management, and secure payments.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    github: "https://github.com/yourusername/ecommerce",
-    demo: "https://ecommerce-demo.com",
-    icon: "🛍️"
+    title: "Payment Gateway Integration",
+    description: "Integration of multiple payment gateways using Next.js, TypeScript, and Tailwind CSS.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PayPal", "Razorpay", ],
+    github: "https://github.com/PremPrakashCodes/payment-gateways",
+    demo: "https://payment-gateways-demo.vercel.app",
+    icon: "💸"
   },
-  {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates. Built using React, Node.js, and MongoDB with WebSocket integration.",
-    tags: ["React", "Node.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/yourusername/task-manager",
-    demo: "https://task-manager-demo.com",
-    icon: "✅"
-  },
-  {
-    title: "AI Image Generator",
-    description: "An AI-powered image generation tool that creates unique artwork based on text descriptions. Integrates with OpenAI's DALL-E API.",
-    tags: ["Python", "Flask", "OpenAI", "React"],
-    github: "https://github.com/yourusername/ai-image-gen",
-    demo: "https://ai-image-demo.com",
-    icon: "🎨"
-  },
+  // {
+  //   title: "Ecommerce Website",
+  //   description: "A fully functional e-commerce website built with Next.js, TypeScript, and Tailwind CSS.",
+  //   tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PayPal", "Razorpay", ],
+  //   github: "https://github.com/PremPrakashCodes/ecommerce",
+  //   demo: "https://ecommerce-demo.com",
+  //   icon: "🛍️"
+  // }
 ];
 
 export default function Projects() {
@@ -69,7 +61,6 @@ export default function Projects() {
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative h-full"
               >

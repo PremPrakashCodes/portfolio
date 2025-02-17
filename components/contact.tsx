@@ -8,22 +8,22 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: <FaGithub className="w-6 h-6" />,
-    url: "https://github.com/yourusername",
+    url: "https://github.com/PremPrakashCodes",
   },
   {
     name: "LinkedIn",
     icon: <FaLinkedin className="w-6 h-6" />,
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://linkedin.com/in/premprakashsharma",
   },
   {
     name: "Twitter",
     icon: <FaTwitter className="w-6 h-6" />,
-    url: "https://twitter.com/yourusername",
+    url: "https://twitter.com/premprakashdev",
   },
   {
     name: "Email",
     icon: <MdEmail className="w-6 h-6" />,
-    url: "mailto:your.email@example.com",
+    url: "mailto:premprakashsharma.dev@gmail.com",
   }
 ];
 
