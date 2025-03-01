@@ -3,29 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-
-const projects = [
-  {
-    title: "Payment Gateway Integration",
-    description: "Integration of multiple payment gateways using Next.js, TypeScript, and Tailwind CSS.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PayPal", "Razorpay", ],
-    github: "https://github.com/PremPrakashCodes/payment-gateways",
-    demo: "https://payment-gateways-demo.vercel.app",
-    icon: "💸"
-  },
-  // {
-  //   title: "Ecommerce Website",
-  //   description: "A fully functional e-commerce website built with Next.js, TypeScript, and Tailwind CSS.",
-  //   tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PayPal", "Razorpay", ],
-  //   github: "https://github.com/PremPrakashCodes/ecommerce",
-  //   demo: "https://ecommerce-demo.com",
-  //   icon: "🛍️"
-  // }
-];
+import SectionHeader from "./section-header";
+import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-14 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/50 to-black/0" />
@@ -33,26 +16,10 @@ export default function Projects() {
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="space-y-16">
           {/* Section Header */}
-          <div className="space-y-6 text-center">
-            <motion.h2 
-              className="text-4xl md:text-5xl  font-bold tracking-tighter bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent animate-shimmer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              
-              transition={{ duration: 0.5 }}
-            >
-              Featured Projects
-            </motion.h2>
-            <motion.p 
-              className="text-gray-400 md:text-lg/relaxed max-w-[700px] mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-             
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Here are some of my recent projects that showcase my technical skills and problem-solving abilities.
-            </motion.p>
-          </div>
+          <SectionHeader
+            title="Featured Projects"
+            description="Here are some of my recent projects that showcase my technical skills and problem-solving abilities."
+          />
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,8 +32,11 @@ export default function Projects() {
                 className="group relative h-full"
               >
                 {/* Gradient background that shows on hover */}
-                <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200" style={{ opacity: 0.05 }} />
-                
+                <div
+                  className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
+                  style={{ opacity: 0.05 }}
+                />
+
                 {/* Card Content */}
                 <div className="relative h-full flex flex-col bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
                   {/* Project Header */}
@@ -78,9 +48,7 @@ export default function Projects() {
                     >
                       {project.icon}
                     </motion.div>
-                    <h3 className="text-2xl font-semibold tracking-tight text-white/90">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-2xl font-semibold tracking-tight text-white/90">{project.title}</h3>
                   </div>
 
                   {/* Description */}
@@ -108,9 +76,7 @@ export default function Projects() {
                             hover:border-white/20 transition-all duration-300 flex items-center gap-2
                             hover:shadow-lg hover:shadow-violet-500/5 backdrop-blur-xl"
                         >
-                          <span className="text-white/90 font-medium">
-                            {tag}
-                          </span>
+                          <span className="text-white/90 font-medium">{tag}</span>
                         </motion.div>
                       ))}
                     </div>

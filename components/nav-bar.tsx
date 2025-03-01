@@ -1,10 +1,10 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from './ui/button';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,22 +15,24 @@ const NavBar = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
     // { href: '/about', label: 'About' },
-    { href: '/#tech-stack', label: 'Tech Stack' },
-    { href: '/#projects', label: 'Projects' },
-    { href: '/#blogs', label: 'Blog' },
-    { href: '/#contact', label: 'Contact' }
+    { href: "/#tech-stack", label: "Tech Stack" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#blogs", label: "Blog" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-background/80 backdrop-blur-lg shadow-lg' : 'bg-background/0'
-    }`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : "bg-background/0"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo - Responsive size */}
@@ -49,16 +51,16 @@ const NavBar = () => {
                 priority
               />
             </div>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-base md:text-lg font-semibold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity truncate max-w-[160px] md:max-w-none"
             >
               Prem Prakash Sharma
             </Link>
           </motion.div>
-            
+
           {/* Desktop Navigation */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="hidden md:flex items-center justify-center gap-8 lg:gap-12"
@@ -95,12 +97,16 @@ const NavBar = () => {
               aria-label="Toggle menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-0.5'
-                }`} />
-                <span className={`block h-0.5 w-5 bg-current transition-all duration-300 mt-1 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-0.5'
-                }`} />
+                <span
+                  className={`block h-0.5 w-5 bg-current transition-all duration-300 ${
+                    isMenuOpen ? "rotate-45 translate-y-0.5" : "-translate-y-0.5"
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 w-5 bg-current transition-all duration-300 mt-1 ${
+                    isMenuOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-0.5"
+                  }`}
+                />
               </div>
             </Button>
           </motion.div>
@@ -112,7 +118,7 @@ const NavBar = () => {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="border-t border-border/40 bg-background/95 backdrop-blur-lg md:hidden"
