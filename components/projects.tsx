@@ -35,7 +35,7 @@ export default function Projects() {
           {/* Section Header */}
           <div className="space-y-6 text-center">
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent animate-shimmer"
+              className="text-4xl md:text-5xl  font-bold tracking-tighter bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent animate-shimmer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               

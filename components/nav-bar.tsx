@@ -20,7 +20,7 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
-    { href: '/about', label: 'About' },
+    // { href: '/about', label: 'About' },
     { href: '/#tech-stack', label: 'Tech Stack' },
     { href: '/#projects', label: 'Projects' },
     { href: '/#blogs', label: 'Blog' },
