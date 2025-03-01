@@ -1,4 +1,3 @@
-import Blogs from "@/components/blogs";
 import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
@@ -17,10 +16,9 @@ export default function Home() {
       {/* Projects Section */}
       <Projects />
       {/* Blogs Section */}
-      <Blogs />
+      {/* <Blogs /> */}
       {/* Contact Section */}
       <Contact />
     </>
-  )
+  );
 }
-
