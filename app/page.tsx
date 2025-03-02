@@ -1,4 +1,6 @@
+import Certificates from "@/components/certificates";
 import Contact from "@/components/contact";
+import Education from "@/components/education";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
 import Projects from "@/components/projects";
@@ -13,6 +15,10 @@ export default function Home() {
       <TechStack />
       {/* Experience Section */}
       <Experience />
+      {/* Education Section */}
+      <Education />
+      {/* Certificates Section */}
+      <Certificates />
       {/* Projects Section */}
       <Projects />
       {/* Blogs Section */}
