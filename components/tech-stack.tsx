@@ -182,7 +182,7 @@ export default function TechStack() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          // viewport={{ once: true }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="space-y-16"
         >
@@ -197,7 +197,7 @@ export default function TechStack() {
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                // viewport={{ once: true }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 className="relative group"
               >
@@ -230,7 +230,7 @@ export default function TechStack() {
                           <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            // viewport={{ once: true }}
+                            viewport={{ once: true }}
                             transition={{
                               duration: 0.3,
                               delay: index * 0.05,
