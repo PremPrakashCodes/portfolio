@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import { socialLinks } from "@/lib/data";
+import LoadingSpinner from "./loading-spinner";
 
 export default function Hero() {
+  const [imageLoading, setImageLoading] = useState(true);
+  
   const staggerDelay = (delay: number) => ({
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -115,7 +119,21 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Image src="/images/profile-image.png" alt="Prem Prakash Sharma" fill className="object-cover" priority />
+              {imageLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                  <LoadingSpinner size="md" />
+                </div>
+              )}
+              <Image 
+                src="/images/profile-image.png" 
+                alt="Prem Prakash Sharma" 
+                fill 
+                className={`object-cover transition-opacity duration-500 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+                priority
+                sizes="(max-width: 768px) 192px, 256px"
+                onLoad={() => setImageLoading(false)}
+                onError={() => setImageLoading(false)}
+              />
             </motion.div>
           </motion.div>
         </div>

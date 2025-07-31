@@ -33,6 +33,14 @@ const NavBar = () => {
         scrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : "bg-background/0"
       }`}
     >
+      {/* Skip to content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded-md z-[100]"
+      >
+        Skip to main content
+      </a>
+      
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo - Responsive size */}
@@ -94,7 +102,8 @@ const NavBar = () => {
               size="icon"
               className="relative"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
                 <span

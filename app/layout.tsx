@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import NavBar from "@/components/nav-bar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
+import ErrorBoundary from "@/components/error-boundary";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
@@ -61,10 +62,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
-        <NavBar />
-        {children}
-        <Footer />
-        <ScrollToTop />
+        <ErrorBoundary>
+          <NavBar />
+          {children}
+          <Footer />
+          <ScrollToTop />
+        </ErrorBoundary>
         <GoogleAnalytics gaId="G-L49P87PHWD" />
       </body>
     </html>
