@@ -55,6 +55,14 @@ export const projects = [
     demo: "https://payment-gateways-demo.vercel.app",
     icon: "💸",
   },
+  {
+    title: "Portfolio Website",
+    description: "Responsive portfolio website with modern animations, dark theme, and optimized performance built with Next.js.",
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript", "Vercel"],
+    github: "https://github.com/PremPrakashCodes/portfolio",
+    demo: "https://premprakashsharma.vercel.app/",
+    icon: "🌟",
+  },
 ] as const;
 
 export const certificates = [
