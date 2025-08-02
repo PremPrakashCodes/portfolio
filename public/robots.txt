@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://premprakashsharma.dev/sitemap.xml
+Sitemap: https://premprakashsharma.vercel.app/sitemap.xml
