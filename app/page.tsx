@@ -8,7 +8,7 @@ import TechStack from "@/components/tech-stack";
 
 export default function Home() {
   return (
-    <>
+    <main>
       {/* Hero Section */}
       <Hero />
       {/* Tech Stack Section */}
@@ -25,6 +25,6 @@ export default function Home() {
       {/* <Blogs /> */}
       {/* Contact Section */}
       <Contact />
-    </>
+    </main>
   );
 }

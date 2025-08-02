@@ -55,6 +55,14 @@ export const projects = [
     demo: "https://payment-gateways-demo.vercel.app",
     icon: "💸",
   },
+  {
+    title: "Portfolio Website",
+    description: "Responsive portfolio website with modern animations, dark theme, and optimized performance built with Next.js.",
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript", "Vercel"],
+    github: "https://github.com/PremPrakashCodes/portfolio",
+    demo: "https://premprakashsharma.vercel.app/",
+    icon: "🌟",
+  },
 ] as const;
 
 export const certificates = [
@@ -71,7 +79,7 @@ export const certificates = [
     id: 2,
     title: "Node.js Essential Training",
     institution: "LinkedIn Learning",
-    duration: "Issued: Octuber 2024",
+    duration: "Issued: October 2024",
     description: "Completed comprehensive training on Node.js, covering core concepts and advanced topics.",
     link: "https://www.linkedin.com/learning/certificates/997f1d774775099388365bae6887f2684a2a4380e27dc89ecad8a237dae70be4",
     icon: FaLinkedinIn,
@@ -80,7 +88,7 @@ export const certificates = [
     id: 3,
     title: "Node.js: Microservices",
     institution: "LinkedIn Learning",
-    duration: "Issued: Octuber 2024",
+    duration: "Issued: October 2024",
     description: "Completed advanced training on building microservices with Node.js and Express.",
     link: "https://www.linkedin.com/learning/certificates/997f1d774775099388365bae6887f2684a2a4380e27dc89ecad8a237dae70be4",
     icon: FaLinkedinIn,
@@ -89,7 +97,7 @@ export const certificates = [
     id: 4,
     title: "React.js Essential Training",
     institution: "LinkedIn Learning",
-    duration: "Issued: Octuber 2024",
+    duration: "Issued: October 2024",
     description: "Completed comprehensive training on React.js, covering core concepts and advanced topics.",
     link: "https://www.linkedin.com/learning/certificates/9135ec5ae78db93e17ce883e0abaa53369da8f54d155828452334a61774bc8c6",
     icon: FaLinkedinIn,
