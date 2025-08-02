@@ -122,34 +122,6 @@ portfolio/
 └── ...
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to contribute to this portfolio project:
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Commit your changes**
-   ```bash
-   git commit -m 'Add some amazing feature'
-   ```
-5. **Push to the branch**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-6. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Maintain consistent code formatting
-- Write meaningful commit messages
-- Test your changes thoroughly
-- Update documentation if needed
-
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
