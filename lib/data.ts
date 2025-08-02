@@ -55,46 +55,6 @@ export const projects = [
     demo: "https://payment-gateways-demo.vercel.app",
     icon: "💸",
   },
-  {
-    title: "Task Management App",
-    description: "Full-stack task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    tags: ["React", "Node.js", "MongoDB", "Socket.io", "Express", "JWT"],
-    github: "https://github.com/PremPrakashCodes/task-manager",
-    demo: "https://task-manager-demo.vercel.app",
-    icon: "📋",
-  },
-  {
-    title: "E-commerce Platform",
-    description: "Modern e-commerce platform with shopping cart, payment processing, user authentication, and admin dashboard.",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Stripe", "NextAuth", "Tailwind CSS"],
-    github: "https://github.com/PremPrakashCodes/ecommerce-platform",
-    demo: "https://ecommerce-platform-demo.vercel.app",
-    icon: "🛒",
-  },
-  {
-    title: "Weather Dashboard",
-    description: "Interactive weather dashboard with location-based forecasts, charts, and real-time weather data visualization.",
-    tags: ["React", "Chart.js", "Weather API", "Geolocation", "CSS3", "JavaScript"],
-    github: "https://github.com/PremPrakashCodes/weather-dashboard",
-    demo: "https://weather-dashboard-demo.vercel.app",
-    icon: "🌤️",
-  },
-  {
-    title: "Blog CMS",
-    description: "Content Management System for blogs with markdown support, SEO optimization, and multi-author capabilities.",
-    tags: ["Next.js", "MDX", "Sanity CMS", "TypeScript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/PremPrakashCodes/blog-cms",
-    demo: "https://blog-cms-demo.vercel.app",
-    icon: "📝",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Responsive portfolio website with modern animations, dark theme, and optimized performance built with Next.js.",
-    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript", "Vercel"],
-    github: "https://github.com/PremPrakashCodes/portfolio",
-    demo: "https://premprakashsharma.dev",
-    icon: "🌟",
-  },
 ] as const;
 
 export const certificates = [

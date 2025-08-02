@@ -8,7 +8,7 @@ import TechStack from "@/components/tech-stack";
 
 export default function Home() {
   return (
-    <main id="main-content">
+    <main>
       {/* Hero Section */}
       <Hero />
       {/* Tech Stack Section */}
