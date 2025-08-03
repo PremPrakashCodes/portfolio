@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prem Prakash Sharma | Full-Stack Developer Portfolio",
     description: "Software Developer specializing in full-stack development with expertise in modern web technologies.",
-    url: "https://premprakashsharma.vercel.app/",
+    url: "https://premprakash.dev/",
     siteName: "Prem Prakash Sharma Portfolio",
     locale: "en_US",
     type: "website",

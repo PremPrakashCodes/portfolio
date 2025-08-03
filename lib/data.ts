@@ -60,7 +60,7 @@ export const projects = [
     description: "Responsive portfolio website with modern animations, dark theme, and optimized performance built with Next.js.",
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript", "Vercel"],
     github: "https://github.com/PremPrakashCodes/portfolio",
-    demo: "https://premprakashsharma.vercel.app/",
+    demo: "https://premprakash.dev/",
     icon: "🌟",
   },
 ] as const;
