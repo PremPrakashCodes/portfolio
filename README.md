@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://premprakashsharma.vercel.app/](https://premprakashsharma.vercel.app/)
+Visit the live portfolio: [https://premprakash.dev/](https://premprakash.dev/)
 
 ## ✨ Features
 
@@ -129,7 +129,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **Prem Prakash Sharma**
-- Website: [premprakashsharma.vercel.app](https://premprakashsharma.vercel.app/)
+- Website: [premprakash.dev](https://premprakash.dev/)
 - Email: [premprakashsharma.dev@gmail.com](mailto:premprakashsharma.dev@gmail.com)
 - LinkedIn: [linkedin.com/in/premprakashsharma](https://www.linkedin.com/in/premprakashsharma/)
 - GitHub: [github.com/PremPrakashCodes](https://github.com/PremPrakashCodes)
