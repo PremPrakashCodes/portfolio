@@ -147,3 +147,37 @@ export const educationData: EducationItem[] = [
     description: "Completed Science stream education with strong foundation in Physics, Chemistry, and Mathematics.",
   },
 ];
+
+type OpenSourceContribution = {
+  id: number;
+  project: string;
+  description: string;
+  contribution: string;
+  technologies: string[];
+  repository: string;
+  status: string;
+  icon: string;
+};
+
+export const openSourceContributions: OpenSourceContribution[] = [
+  {
+    id: 1,
+    project: "Next.js",
+    description: "The React Framework for Production",
+    contribution: "Documentation improvements and bug fixes for routing and server components",
+    technologies: ["React", "TypeScript", "Node.js"],
+    repository: "https://github.com/vercel/next.js",
+    status: "Merged",
+    icon: "⚛️",
+  },
+  {
+    id: 2,
+    project: "TypeScript",
+    description: "JavaScript with syntax for types",
+    contribution: "Contributed to type definitions and compiler improvements",
+    technologies: ["TypeScript", "JavaScript"],
+    repository: "https://github.com/microsoft/TypeScript",
+    status: "Open",
+    icon: "📘",
+  },
+];

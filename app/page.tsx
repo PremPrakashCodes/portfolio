@@ -3,6 +3,7 @@ import Contact from "@/components/contact";
 import Education from "@/components/education";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
+import OpenSource from "@/components/open-source";
 import Projects from "@/components/projects";
 import TechStack from "@/components/tech-stack";
 
@@ -21,6 +22,8 @@ export default function Home() {
       <Certificates />
       {/* Projects Section */}
       <Projects />
+      {/* Open Source Contributions Section */}
+      <OpenSource />
       {/* Blogs Section */}
       {/* <Blogs /> */}
       {/* Contact Section */}

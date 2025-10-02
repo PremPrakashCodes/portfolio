@@ -18,6 +18,7 @@ Visit the live portfolio: [https://premprakash.dev/](https://premprakash.dev/)
   - Education background
   - Certifications and achievements
   - Featured projects with live demos
+  - Open source contributions
   - Contact form with validation
 - **Performance Optimized**: Built with Next.js for optimal performance and SEO
 - **Type Safety**: Full TypeScript implementation for better code quality
@@ -80,11 +81,13 @@ Visit the live portfolio: [https://premprakash.dev/](https://premprakash.dev/)
    - Projects information
    - Certificates
    - Education details
+   - Open source contributions
 
 2. **Modify content**: Update individual components in the `components/` directory
    - `hero.tsx` - Landing section
    - `experience.tsx` - Work experience
    - `projects.tsx` - Project showcase
+   - `open-source.tsx` - Open source contributions
    - `contact.tsx` - Contact form
    - And more...
 
