@@ -138,29 +138,29 @@ const technologies: Technology[] = [
 ];
 
 const categories = [
-  { id: "language", name: "Languages", color: "from-red-500 to-rose-400", icon: <FaCode className="w-6 h-6" /> },
+  { id: "language", name: "Languages", color: "blue-500", icon: <FaCode className="w-6 h-6" /> },
   {
     id: "frontend",
     name: "Frontend Development",
-    color: "from-blue-500 to-cyan-400",
+    color: "blue-500",
     icon: <FaReact className="w-6 h-6" />,
   },
   {
     id: "backend",
     name: "Backend Development",
-    color: "from-green-500 to-emerald-400",
+    color: "blue-500",
     icon: <FaNodeJs className="w-6 h-6" />,
   },
   {
     id: "database",
     name: "Database",
-    color: "from-orange-500 to-yellow-400",
+    color: "blue-500",
     icon: <FaDatabase className="w-6 h-6" />,
   },
   {
     id: "devops",
     name: "DevOps & Cloud",
-    color: "from-violet-500 to-purple-400",
+    color: "blue-500",
     icon: <FaCloud className="w-6 h-6" />,
   },
 ];
@@ -171,7 +171,7 @@ export default function TechStack() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
+        className="absolute inset-0 bg-black/5"
         style={{
           maskImage: "radial-gradient(ellipse at center, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
@@ -199,9 +199,9 @@ export default function TechStack() {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 className="relative group"
               >
-                {/* Gradient background that shows on hover */}
+                {/* Background that shows on hover */}
                 <div
-                  className={`absolute -inset-[1px] bg-gradient-to-r ${category.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200`}
+                  className={`absolute -inset-[1px] bg-${category.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200`}
                   style={{ opacity: 0.05 }}
                 />
 
@@ -212,7 +212,7 @@ export default function TechStack() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      className={`bg-gradient-to-r ${category.color} p-3.5 rounded-xl text-white shadow-lg`}
+                      className={`bg-${category.color} p-3.5 rounded-xl text-white shadow-lg`}
                     >
                       {category.icon}
                     </motion.div>

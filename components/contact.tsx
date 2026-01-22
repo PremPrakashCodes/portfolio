@@ -10,7 +10,7 @@ export default function Contact() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
+        className="absolute inset-0 bg-black/5"
         style={{
           maskImage: "radial-gradient(ellipse at center, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
@@ -34,7 +34,7 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-blue-500/10 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-500" />
+              <div className="absolute inset-0 bg-blue-500/10 rounded-[32px] opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
               <div className="flex flex-wrap justify-center gap-8">
                 {socialLinks.map((link, index) => (
@@ -67,7 +67,7 @@ export default function Contact() {
                       </div>
 
                       {/* Glow Effect */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-violet-500/40 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
+                      <div className="absolute -inset-1 bg-blue-500/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
                     </motion.div>
 
                     <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors duration-300">

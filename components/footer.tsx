@@ -10,7 +10,7 @@ export default function Footer() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
+        className="absolute inset-0 bg-black/5"
         style={{
           maskImage: "radial-gradient(ellipse at center, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",

@@ -18,9 +18,9 @@ export default function Hero() {
   });
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-14">
-      {/* Background gradient circles */}
+      {/* Background circles */}
       <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-500/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-violet-500/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-500/20 rounded-full blur-3xl" />
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
@@ -35,22 +35,22 @@ export default function Hero() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                   Hi, I&#39;m{" "}
-                  <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-clip-text text-transparent font-bold">
+                  <span className="text-blue-400 font-bold">
                     Prem Prakash Sharma
                   </span>
                 </h1>
               </motion.div>
 
               <motion.p className="text-xl text-muted-foreground max-w-[600px]" {...staggerDelay(0.2)}>
-                Software Developer specializing in full-stack development with expertise in modern web technologies.
-                Crafting scalable solutions and clean, maintainable code.
+                Software Developer building production-grade web and AI systems. Specializing in TypeScript, Python, FastAPI,
+                and Node.js with expertise in scalable backend services, LLM integration, and cloud deployment.
               </motion.p>
             </div>
 
             <motion.div className="flex flex-wrap gap-4" {...staggerDelay(0.4)}>
               <Button
                 variant="outline"
-                className="rounded-full bg-gradient-to-r from-blue-400 to-violet-400 hover:from-blue-500 hover:to-violet-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8"
+                className="rounded-full bg-blue-400 hover:bg-blue-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8"
                 asChild
               >
                 <motion.a
@@ -103,7 +103,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <motion.div
-              className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-400 to-violet-400 blur-2xl opacity-20"
+              className="absolute -inset-1 rounded-full bg-blue-400 blur-2xl opacity-20"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.2, 0.3, 0.2],
@@ -130,6 +130,7 @@ export default function Hero() {
                 fill 
                 className={`object-cover transition-opacity duration-500 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
                 priority
+                quality={95}
                 sizes="(max-width: 768px) 192px, 256px"
                 onLoad={() => setImageLoading(false)}
                 onError={() => setImageLoading(false)}

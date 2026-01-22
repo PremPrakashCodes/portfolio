@@ -11,7 +11,13 @@ export default function Projects() {
     <section id="projects" className="py-14 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/50 to-black/0" />
+      <div
+        className="absolute inset-0 bg-black/5"
+        style={{
+          maskImage: "radial-gradient(ellipse at center, black, transparent)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
+        }}
+      />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="space-y-16">
@@ -31,9 +37,9 @@ export default function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative h-full"
               >
-                {/* Gradient background that shows on hover */}
+                {/* Background that shows on hover */}
                 <div
-                  className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
+                  className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
                   style={{ opacity: 0.05 }}
                 />
 
@@ -44,7 +50,7 @@ export default function Projects() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      className="bg-gradient-to-r from-blue-500 to-violet-500 p-3.5 rounded-xl text-white shadow-lg"
+                      className="bg-blue-500 p-3.5 rounded-xl text-white shadow-lg"
                     >
                       {project.icon}
                     </motion.div>

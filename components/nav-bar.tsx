@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DownloadIcon } from "lucide-react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,7 +62,7 @@ const NavBar = () => {
             </div>
             <Link
               href="/"
-              className="text-base md:text-lg font-semibold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity truncate max-w-[160px] md:max-w-none"
+              className="text-base md:text-lg font-semibold text-blue-400 hover:opacity-80 transition-opacity truncate max-w-[160px] md:max-w-none"
             >
               Prem Prakash Sharma
             </Link>
@@ -71,7 +72,7 @@ const NavBar = () => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="hidden md:flex items-center justify-center gap-8 lg:gap-12"
+            className="hidden md:flex items-center justify-center gap-6 lg:gap-8"
           >
             {navLinks.map((link, index) => (
               <motion.div
@@ -85,10 +86,31 @@ const NavBar = () => {
                   className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group py-2"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-violet-400 transition-all group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full" />
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.1 }}
+            >
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full border border-blue-400/30 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400/50 transition-all duration-300"
+                asChild
+              >
+                <a
+                  href="/Prem_Prakash_Sharma_Resume.pdf"
+                  download
+                  className="flex items-center gap-2"
+                >
+                  <DownloadIcon className="w-3.5 h-3.5" />
+                  Resume
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -149,6 +171,22 @@ const NavBar = () => {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+                className="pt-2"
+              >
+                <a
+                  href="/Prem_Prakash_Sharma_Resume.pdf"
+                  download
+                  className="flex items-center gap-2 py-3 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <DownloadIcon className="w-4 h-4" />
+                  Download Resume
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}

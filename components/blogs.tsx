@@ -38,7 +38,7 @@ export default function Blogs() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
+        className="absolute inset-0 bg-black/5"
         style={{
           maskImage: "radial-gradient(ellipse at center, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
@@ -69,9 +69,9 @@ export default function Blogs() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative flex flex-col"
               >
-                {/* Gradient background that shows on hover */}
+                {/* Background that shows on hover */}
                 <div
-                  className="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
+                  className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
                   style={{ opacity: 0.05 }}
                 />
 

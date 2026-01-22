@@ -21,7 +21,7 @@ export default function Certificates() {
               className="p-6 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 shadow-sm"
             >
               <div className="flex items-center mb-4">
-                <div className="p-2 mr-4 text-white bg-gradient-to-r from-purple-600 to-blue-500 rounded-full">
+                <div className="p-2 mr-4 text-white bg-blue-500 rounded-full">
                   <item.icon />
                 </div>
                 <div className="flex-1">

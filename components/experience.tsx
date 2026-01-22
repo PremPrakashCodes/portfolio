@@ -12,7 +12,7 @@ export default function Experience() {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
+        className="absolute inset-0 bg-black/5"
         style={{
           maskImage: "radial-gradient(ellipse at center, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
@@ -34,7 +34,7 @@ export default function Experience() {
           {/* Timeline container */}
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-blue-500/30 via-violet-500/30 to-blue-500/30" />
+            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-[2px] bg-blue-500/30" />
 
             {experienceData.map((experience, index) => (
               <motion.div
@@ -45,9 +45,9 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {/* Timeline dot */}
-                <div className="absolute -left-2.5 md:left-1/2 transform md:-translate-x-1/2 -top-2 w-6 h-6 rounded-full border-2 border-violet-400 bg-black z-10">
+                <div className="absolute -left-2.5 md:left-1/2 transform md:-translate-x-1/2 -top-2 w-6 h-6 rounded-full border-2 border-blue-400 bg-black z-10">
                   <motion.div
-                    className="absolute inset-[3px] rounded-full bg-violet-400"
+                    className="absolute inset-[3px] rounded-full bg-blue-400"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ delay: index * 0.2, type: "spring", stiffness: 300, damping: 20 }}
@@ -67,7 +67,7 @@ export default function Experience() {
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     {/* Glow effect */}
-                    <div className="absolute -inset-1 rounded-2xl opacity-50 bg-gradient-to-r from-blue-500/20 via-violet-500/20 to-blue-500/20 blur-xl group-hover:opacity-100 transition-all duration-500" />
+                    <div className="absolute -inset-1 rounded-2xl opacity-50 bg-blue-500/20 blur-xl group-hover:opacity-100 transition-all duration-500" />
 
                     {/* Card content */}
                     <div className="relative h-full bg-black/80 p-7 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 group-hover:border-white/30 overflow-hidden">
