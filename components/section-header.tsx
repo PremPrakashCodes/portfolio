@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 interface SectionHeaderProps {
@@ -15,7 +14,6 @@ export default function SectionHeader({ title, description }: SectionHeaderProps
         className="text-4xl md:text-5xl font-bold tracking-tighter text-blue-400"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        // viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         {title}
@@ -24,7 +22,6 @@ export default function SectionHeader({ title, description }: SectionHeaderProps
         className="mx-auto max-w-[700px] text-gray-400 md:text-lg/relaxed"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        // viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         {description}

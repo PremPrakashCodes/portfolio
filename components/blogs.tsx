@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import SectionHeader from "./section-header";
+import SectionBackground from "./section-background";
 
 const blogPosts = [
   {
@@ -35,21 +36,12 @@ const blogPosts = [
 export default function Blogs() {
   return (
     <section id="blogs" className="py-14 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div
-        className="absolute inset-0 bg-black/5"
-        style={{
-          maskImage: "radial-gradient(ellipse at center, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          // viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="space-y-16"
         >
@@ -65,38 +57,31 @@ export default function Blogs() {
                 href={post.link}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                // viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative flex flex-col"
               >
-                {/* Background that shows on hover */}
                 <div
                   className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
                   style={{ opacity: 0.05 }}
                 />
 
-                {/* Card Content */}
                 <div className="relative h-full flex flex-col bg-gray-950 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
                   <div className="flex flex-col h-full min-h-64">
-                    {/* Meta information */}
                     <div className="flex items-center gap-4 text-sm text-zinc-400">
                       <span>{post.date}</span>
                       <span>•</span>
                       <span>{post.readTime}</span>
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-xl font-semibold text-zinc-100 group-hover:text-white transition duration-300 mt-4">
                       {post.title}
                     </h3>
 
-                    {/* Excerpt */}
                     <p className="text-zinc-400 group-hover:text-zinc-300 transition duration-300 mt-4 flex-grow">
                       {post.excerpt}
                     </p>
 
                     <div className="space-y-4 mt-auto pt-6">
-                      {/* Tags */}
                       <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag) => (
                           <span
@@ -108,7 +93,6 @@ export default function Blogs() {
                         ))}
                       </div>
 
-                      {/* Read More Link */}
                       <div className="flex items-center gap-2 text-zinc-300 group-hover:text-white transition duration-300 pt-4 border-t border-white/10">
                         Read More
                         <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition duration-300" />

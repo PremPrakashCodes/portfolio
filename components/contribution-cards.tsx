@@ -48,15 +48,12 @@ export default function ContributionCards({
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="group relative"
         >
-          {/* Hover glow */}
           <div
             className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
             style={{ opacity: 0.05 }}
           />
 
-          {/* Card */}
           <div className="relative flex flex-col bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
-            {/* Repo Header */}
             <Link
               href={repo.repoUrl}
               target="_blank"
@@ -83,7 +80,6 @@ export default function ContributionCards({
               </div>
             </Link>
 
-            {/* PR List */}
             <ul className="space-y-4">
               {repo.prs.map((pr) => (
                 <li key={pr.url} className="border-t border-white/5 pt-4">

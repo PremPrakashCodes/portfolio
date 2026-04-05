@@ -1,23 +1,15 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { experienceData } from "@/lib/data";
 import SectionHeader from "./section-header";
+import SectionBackground from "./section-background";
 import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Experience() {
   return (
     <section id="experience" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div
-        className="absolute inset-0 bg-black/5"
-        style={{
-          maskImage: "radial-gradient(ellipse at center, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <motion.div
@@ -31,9 +23,7 @@ export default function Experience() {
             description="Professional journey and achievements in software development"
           />
 
-          {/* Timeline container */}
           <div className="relative max-w-4xl mx-auto">
-            {/* Timeline line */}
             <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-[2px] bg-blue-500/30" />
 
             {experienceData.map((experience, index) => (
@@ -44,7 +34,6 @@ export default function Experience() {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {/* Timeline dot */}
                 <div className="absolute -left-2.5 md:left-1/2 transform md:-translate-x-1/2 -top-2 w-6 h-6 rounded-full border-2 border-blue-400 bg-black z-10">
                   <motion.div
                     className="absolute inset-[3px] rounded-full bg-blue-400"
@@ -54,24 +43,19 @@ export default function Experience() {
                   />
                 </div>
 
-                {/* Card positioning - alternating left/right on larger screens */}
                 <div
                   className={`relative md:w-[calc(50%-30px)] ml-8 md:ml-auto ${
                     index % 2 === 0 ? "md:mr-[calc(50%+30px)]" : "md:ml-[calc(50%+30px)]"
                   }`}
                 >
-                  {/* Card */}
                   <motion.div
                     className="group"
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
-                    {/* Glow effect */}
                     <div className="absolute -inset-1 rounded-2xl opacity-50 bg-blue-500/20 blur-xl group-hover:opacity-100 transition-all duration-500" />
 
-                    {/* Card content */}
                     <div className="relative h-full bg-black/80 p-7 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 group-hover:border-white/30 overflow-hidden">
-                      {/* Header row */}
                       <div className="flex justify-between items-start mb-5">
                         <div>
                           <motion.h3
@@ -95,7 +79,6 @@ export default function Experience() {
                         </div>
                       </div>
 
-                      {/* Meta information */}
                       <div className="flex flex-wrap gap-4 mb-5 text-gray-400 text-sm">
                         <motion.div
                           className="flex items-center"
@@ -118,7 +101,6 @@ export default function Experience() {
                         </motion.div>
                       </div>
 
-                      {/* Description */}
                       <motion.ul
                         className="space-y-3 text-gray-300"
                         initial={{ opacity: 0 }}

@@ -21,10 +21,8 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
-    // { href: '/about', label: 'About' },
     { href: "/#tech-stack", label: "Tech Stack" },
     { href: "/#projects", label: "Projects" },
-    // { href: "/#blogs", label: "Blog" },
     { href: "/#contact", label: "Contact" },
   ];
 
@@ -34,7 +32,6 @@ const NavBar = () => {
         scrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : "bg-background/0"
       }`}
     >
-      {/* Skip to content link for accessibility */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-500 text-white px-4 py-2 rounded-md z-[100]"
@@ -44,7 +41,6 @@ const NavBar = () => {
       
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo - Responsive size */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -68,7 +64,6 @@ const NavBar = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,7 +108,6 @@ const NavBar = () => {
             </motion.div>
           </motion.div>
 
-          {/* Mobile Menu Button */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -144,7 +138,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

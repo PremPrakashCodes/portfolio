@@ -16,6 +16,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import SectionHeader from "./section-header";
+import SectionBackground from "./section-background";
 
 interface Technology {
   name: string;
@@ -138,45 +139,17 @@ const technologies: Technology[] = [
 ];
 
 const categories = [
-  { id: "language", name: "Languages", color: "blue-500", icon: <FaCode className="w-6 h-6" /> },
-  {
-    id: "frontend",
-    name: "Frontend Development",
-    color: "blue-500",
-    icon: <FaReact className="w-6 h-6" />,
-  },
-  {
-    id: "backend",
-    name: "Backend Development",
-    color: "blue-500",
-    icon: <FaNodeJs className="w-6 h-6" />,
-  },
-  {
-    id: "database",
-    name: "Database",
-    color: "blue-500",
-    icon: <FaDatabase className="w-6 h-6" />,
-  },
-  {
-    id: "devops",
-    name: "DevOps & Cloud",
-    color: "blue-500",
-    icon: <FaCloud className="w-6 h-6" />,
-  },
+  { id: "language", name: "Languages", icon: <FaCode className="w-6 h-6" /> },
+  { id: "frontend", name: "Frontend Development", icon: <FaReact className="w-6 h-6" /> },
+  { id: "backend", name: "Backend Development", icon: <FaNodeJs className="w-6 h-6" /> },
+  { id: "database", name: "Database", icon: <FaDatabase className="w-6 h-6" /> },
+  { id: "devops", name: "DevOps & Cloud", icon: <FaCloud className="w-6 h-6" /> },
 ];
 
 export default function TechStack() {
   return (
     <section id="tech-stack" className="py-14 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div
-        className="absolute inset-0 bg-black/5"
-        style={{
-          maskImage: "radial-gradient(ellipse at center, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <motion.div
@@ -199,27 +172,23 @@ export default function TechStack() {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 className="relative group"
               >
-                {/* Background that shows on hover */}
                 <div
-                  className={`absolute -inset-[1px] bg-${category.color} rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200`}
+                  className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
                   style={{ opacity: 0.05 }}
                 />
 
-                {/* Card Content */}
                 <div className="relative h-full space-y-4 bg-black/60 p-5 sm:p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
-                  {/* Category Header */}
                   <div className="flex items-center gap-4">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
-                      className={`bg-${category.color} p-3.5 rounded-xl text-white shadow-lg`}
+                      className="bg-blue-500 p-3.5 rounded-xl text-white shadow-lg"
                     >
                       {category.icon}
                     </motion.div>
                     <h3 className="text-2xl font-semibold tracking-tight text-white/90">{category.name}</h3>
                   </div>
 
-                  {/* Technologies Grid */}
                   <div className="flex flex-wrap !mt-8 gap-3">
                     {technologies
                       .filter((tech) => tech.category === category.id)
@@ -236,9 +205,9 @@ export default function TechStack() {
                               scale: 1.05,
                               y: -2,
                             }}
-                            className={`group/tech px-4 py-2 rounded-full text-sm bg-white/[0.03] border border-white/10 
+                            className="group/tech px-4 py-2 rounded-full text-sm bg-white/[0.03] border border-white/10
                               hover:border-white/20 transition-all duration-300 flex items-center gap-2.5
-                              hover:shadow-lg hover:shadow-${category.color}/5 backdrop-blur-xl cursor-pointer`}
+                              hover:shadow-lg hover:shadow-blue-500/5 backdrop-blur-xl cursor-pointer"
                           >
                             <span className="text-lg">{tech.icon}</span>
                             <span className="text-white font-medium text-[11px] sm:text-xs whitespace-nowrap antialiased">

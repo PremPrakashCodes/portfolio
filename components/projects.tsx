@@ -4,30 +4,21 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import SectionHeader from "./section-header";
+import SectionBackground from "./section-background";
 import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
     <section id="projects" className="py-14 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div
-        className="absolute inset-0 bg-black/5"
-        style={{
-          maskImage: "radial-gradient(ellipse at center, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="space-y-16">
-          {/* Section Header */}
           <SectionHeader
             title="Featured Projects"
             description="Here are some of my recent projects that showcase my technical skills and problem-solving abilities."
           />
 
-          {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
@@ -37,15 +28,12 @@ export default function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative h-full"
               >
-                {/* Background that shows on hover */}
                 <div
                   className="absolute -inset-[1px] bg-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 group-hover:duration-200"
                   style={{ opacity: 0.05 }}
                 />
 
-                {/* Card Content */}
                 <div className="relative h-full flex flex-col bg-black/40 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
-                  {/* Project Header */}
                   <div className="flex items-center gap-4">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -57,13 +45,11 @@ export default function Projects() {
                     <h3 className="text-2xl font-semibold tracking-tight text-white/90">{project.title}</h3>
                   </div>
 
-                  {/* Description */}
                   <p className="text-[15px] leading-relaxed text-gray-400 md:text-base/relaxed mt-6">
                     {project.description}
                   </p>
 
                   <div className="mt-auto pt-8">
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-3 mb-6">
                       {project.tags.map((tag, index) => (
                         <motion.div
@@ -87,7 +73,6 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    {/* Links */}
                     <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                       <Link
                         href={project.github}

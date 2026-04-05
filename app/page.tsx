@@ -10,23 +10,13 @@ import TechStack from "@/components/tech-stack";
 export default function Home() {
   return (
     <main>
-      {/* Hero Section */}
       <Hero />
-      {/* Tech Stack Section */}
       <TechStack />
-      {/* Experience Section */}
       <Experience />
-      {/* Education Section */}
       <Education />
-      {/* Certificates Section */}
       <Certificates />
-      {/* Projects Section */}
       <Projects />
-      {/* Open Source Contributions Section */}
       <Contributions />
-      {/* Blogs Section */}
-      {/* <Blogs /> */}
-      {/* Contact Section */}
       <Contact />
     </main>
   );

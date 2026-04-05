@@ -49,11 +49,9 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
     const grouped = new Map<string, RepoContributions>();
 
     for (const item of data.items) {
-      // repository_url looks like "https://api.github.com/repos/tw93/Mole"
       const repoFullName = item.repository_url.replace("https://api.github.com/repos/", "");
       const [owner] = repoFullName.split("/");
 
-      // Filter out own repos
       if (owner === GITHUB_USERNAME) continue;
 
       const state: Contribution["state"] = item.pull_request?.merged_at
@@ -62,7 +60,6 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
           ? "open"
           : "closed";
 
-      // Only show merged and open PRs
       if (state === "closed") continue;
 
       const pr: Contribution = {
@@ -85,7 +82,6 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
       grouped.get(repoFullName)!.prs.push(pr);
     }
 
-    // Fetch star counts for each repo in parallel
     const repos = Array.from(grouped.values());
     await Promise.all(
       repos.map(async (repo) => {
@@ -102,7 +98,7 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
             repo.stars = data.stargazers_count ?? 0;
           }
         } catch {
-          // Keep default 0 stars
+          // stars default to 0
         }
       })
     );

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionBackground from "@/components/section-background";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -26,21 +27,12 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Here you would typically handle form submission
     console.log(values);
   }
 
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/0"
-        style={{
-          maskImage: 'radial-gradient(ellipse at center, black, transparent)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black, transparent)'
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <motion.div

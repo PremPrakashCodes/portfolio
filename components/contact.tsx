@@ -3,19 +3,12 @@
 import { socialLinks } from "@/lib/data";
 import { motion } from "framer-motion";
 import SectionHeader from "./section-header";
+import SectionBackground from "./section-background";
 
 export default function Contact() {
   return (
     <section id="contact" className="py-14 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      <div
-        className="absolute inset-0 bg-black/5"
-        style={{
-          maskImage: "radial-gradient(ellipse at center, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent)",
-        }}
-      />
+      <SectionBackground />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <motion.div
@@ -26,7 +19,6 @@ export default function Contact() {
         >
           <SectionHeader title="Let's Connect" description="Feel free to reach out through any of these platforms" />
 
-          {/* Social Links */}
           <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -59,14 +51,12 @@ export default function Contact() {
                       whileTap={{ scale: 0.95 }}
                       className="relative"
                     >
-                      {/* Icon Background */}
                       <div className="relative p-4 rounded-2xl bg-gradient-to-br from-white/[0.075] to-white/[0.025] border border-white/10 backdrop-blur-xl group-hover:border-white/20 transition-colors duration-300">
                         <div className="text-gray-400 group-hover:text-white transition-colors duration-300">
                           <link.icon />
                         </div>
                       </div>
 
-                      {/* Glow Effect */}
                       <div className="absolute -inset-1 bg-blue-500/40 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
                     </motion.div>
 
