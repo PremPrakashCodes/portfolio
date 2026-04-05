@@ -1,5 +1,6 @@
 import Certificates from "@/components/certificates";
 import Contact from "@/components/contact";
+import Contributions from "@/components/contributions";
 import Education from "@/components/education";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
@@ -21,6 +22,8 @@ export default function Home() {
       <Certificates />
       {/* Projects Section */}
       <Projects />
+      {/* Open Source Contributions Section */}
+      <Contributions />
       {/* Blogs Section */}
       {/* <Blogs /> */}
       {/* Contact Section */}
