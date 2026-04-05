@@ -36,7 +36,7 @@ export default function TableOfContents({ content }: { content: string }) {
           }
         });
       },
-      { rootMargin: "0px 0px -80% 0px" }
+      { rootMargin: "0px 0px -80% 0px" },
     );
 
     headings.forEach(({ id }) => {
@@ -50,8 +50,8 @@ export default function TableOfContents({ content }: { content: string }) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="hidden xl:block sticky top-28 w-64 max-h-[calc(100vh-8rem)] overflow-y-auto">
-      <p className="text-sm font-semibold text-white/60 mb-4 uppercase tracking-wider">
+    <nav className="mb-10 p-5 rounded-xl bg-white/[0.03] border border-white/10">
+      <p className="text-sm font-semibold text-white/60 mb-3 uppercase tracking-wider">
         On this page
       </p>
       <ul className="space-y-2">

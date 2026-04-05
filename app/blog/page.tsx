@@ -30,7 +30,7 @@ export default async function BlogPage() {
         {posts.length === 0 ? (
           <p className="text-muted-foreground">No posts yet. Check back soon.</p>
         ) : (
-          <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
               <BlogCard
                 key={post.slug}
@@ -40,6 +40,7 @@ export default async function BlogPage() {
                 readTime={post.readTime}
                 tags={post.tags}
                 slug={post.slug}
+                image={post.image}
               />
             ))}
           </ScrollAnimation>

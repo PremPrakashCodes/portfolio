@@ -12,6 +12,7 @@ export type BlogPost = {
   tags: string[];
   readTime: string;
   published: boolean;
+  image?: string;
   content: string;
 };
 
@@ -25,6 +26,7 @@ function parsePost(slug: string, raw: string): BlogPost {
     tags: data.tags ?? [],
     readTime: data.readTime ?? "3 min read",
     published: data.published !== false,
+    image: data.image,
     content,
   };
 }

@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import { ComponentPropsWithoutRef } from "react";
+import CodeBlock from "./code-block";
 
 function Callout({
   children,
@@ -63,11 +64,16 @@ function mdxComponents(components: MDXComponents): MDXComponents {
     a: (props: ComponentPropsWithoutRef<"a">) => (
       <a className="text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors" {...props} />
     ),
-    code: (props: ComponentPropsWithoutRef<"code">) => (
-      <code className="bg-white/5 border border-white/10 rounded px-1.5 py-0.5 text-sm text-blue-300 font-mono" {...props} />
-    ),
+    code: (props: ComponentPropsWithoutRef<"code"> & { "data-language"?: string }) => {
+      if (props["data-language"]) {
+        return <code {...props} className={undefined} />;
+      }
+      return (
+        <code className="bg-white/5 border border-white/10 rounded px-1.5 py-0.5 text-sm text-blue-300 font-mono" {...props} />
+      );
+    },
     pre: (props: ComponentPropsWithoutRef<"pre">) => (
-      <pre className="bg-black/50 border border-white/10 rounded-lg p-4 overflow-x-auto my-6 text-sm" {...props} />
+      <CodeBlock {...props} />
     ),
     blockquote: (props: ComponentPropsWithoutRef<"blockquote">) => (
       <blockquote className="border-l-2 border-blue-500/50 pl-4 italic text-gray-500 my-6" {...props} />

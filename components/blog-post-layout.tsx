@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import TableOfContents from "./table-of-contents";
@@ -29,7 +30,7 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
           Back to Blog
         </Link>
 
-        <header className="max-w-3xl mb-12">
+        <header className="max-w-3xl mx-auto mb-12">
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag) => (
               <span
@@ -59,11 +60,22 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
           </div>
         </header>
 
-        <div className="flex gap-16">
-          <div className="max-w-3xl min-w-0 flex-1">
-            <MDXContent components={components} />
+        {post.image && (
+          <div className="max-w-3xl mx-auto mb-10 rounded-xl overflow-hidden border border-white/10">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="w-full h-auto object-cover"
+              priority
+            />
           </div>
+        )}
+
+        <div className="max-w-3xl mx-auto">
           <TableOfContents content={post.content} />
+          <MDXContent components={components} />
         </div>
       </div>
     </article>

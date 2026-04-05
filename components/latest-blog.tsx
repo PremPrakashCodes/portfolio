@@ -21,15 +21,19 @@ export default async function LatestBlog() {
           />
         </ScrollAnimation>
 
-        <ScrollAnimation animation="fade-up" className="max-w-2xl mx-auto mt-16">
-          <BlogCard
-            title={latest.title}
-            description={latest.description}
-            date={latest.date}
-            readTime={latest.readTime}
-            tags={latest.tags}
-            slug={latest.slug}
-          />
+        <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+          {posts.slice(0, 3).map((post) => (
+            <BlogCard
+              key={post.slug}
+              title={post.title}
+              description={post.description}
+              date={post.date}
+              readTime={post.readTime}
+              tags={post.tags}
+              slug={post.slug}
+              image={post.image}
+            />
+          ))}
         </ScrollAnimation>
 
         <ScrollAnimation animation="fade-up" className="text-center mt-12">
