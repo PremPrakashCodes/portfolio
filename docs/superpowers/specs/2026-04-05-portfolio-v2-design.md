@@ -190,8 +190,8 @@ Full redesign of Prem Prakash Sharma's portfolio from a single-page app to a mul
 - **Info panel:** social links with icons + labels, email address, location info
 - **Buy Me a Coffee:** prominently placed in info panel, custom-styled button
 - Success/error toast notifications (existing Shadcn toast)
-- **Form submission via Resend:**
-  - Next.js API route (`app/api/contact/route.ts`) handles form POST
+- **Form submission via Resend (Server Action):**
+  - Server action in `lib/actions/contact.ts` handles form submission
   - Sends notification email to `premprakashsharma.dev@gmail.com` with the user's name, email, and message
   - Sends confirmation email to the user thanking them for reaching out
   - Uses `resend` npm package
@@ -290,12 +290,9 @@ components/
   page-entrance.tsx               # New: GSAP page entrance animation wrapper
   scroll-animation.tsx            # New: reusable GSAP scroll wrapper
 
-app/
-  api/
-    contact/
-      route.ts                    # New: Resend email API route
-
 lib/
+  actions/
+    contact.ts                    # New: Server action for Resend email
   blog.ts                         # New: MDX utilities (list, get, filter)
   data.ts                         # Update: expand if needed
 ```
