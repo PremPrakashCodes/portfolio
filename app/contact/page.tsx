@@ -17,7 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { socialLinks } from "@/lib/data";
-import { sendContactEmail, contactSchema } from "@/lib/actions/contact";
+import { sendContactEmail } from "@/lib/actions/contact";
+import { contactSchema } from "@/lib/schemas/contact";
 import BuyMeCoffee from "@/components/buy-me-coffee";
 import { Send, Loader2 } from "lucide-react";
 

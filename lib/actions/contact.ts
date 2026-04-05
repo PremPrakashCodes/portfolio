@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
+import { contactSchema } from "@/lib/schemas/contact";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,12 +14,6 @@ function escapeHtml(str: string): string {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
-
-export const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
 
 type ContactResult = {
   success: boolean;
@@ -42,7 +37,7 @@ export async function sendContactEmail(
 
     await Promise.all([
       resend.emails.send({
-        from: "Portfolio Contact <contact@premprakash.dev>",
+        from: "Portfolio Contact <noreply@premprakash.dev>",
         to: "premprakashsharma.dev@gmail.com",
         subject: `New message from ${safeName}`,
         html: `
