@@ -22,6 +22,7 @@ Full redesign of Prem Prakash Sharma's portfolio from a single-page app to a mul
 | Blog | next-mdx-remote | Blog content (file-based with frontmatter) |
 | Syntax | rehype-pretty-code + shiki | Code block highlighting in blog |
 | Forms | React Hook Form + Zod | Existing, keep |
+| Email | Resend | Contact form email delivery |
 | Icons | Lucide React + React Icons | Existing, keep |
 
 ### New Dependencies to Add
@@ -34,6 +35,7 @@ Full redesign of Prem Prakash Sharma's portfolio from a single-page app to a mul
 - `rehype-pretty-code`
 - `shiki`
 - `gray-matter` (MDX frontmatter parsing)
+- `resend` (email delivery for contact form)
 
 ## Route Structure
 
@@ -188,7 +190,12 @@ Full redesign of Prem Prakash Sharma's portfolio from a single-page app to a mul
 - **Info panel:** social links with icons + labels, email address, location info
 - **Buy Me a Coffee:** prominently placed in info panel, custom-styled button
 - Success/error toast notifications (existing Shadcn toast)
-- Form submission: currently logs to console (can be wired to API later)
+- **Form submission via Resend:**
+  - Next.js API route (`app/api/contact/route.ts`) handles form POST
+  - Sends notification email to `premprakashsharma.dev@gmail.com` with the user's name, email, and message
+  - Sends confirmation email to the user thanking them for reaching out
+  - Uses `resend` npm package
+  - Requires `RESEND_API_KEY` environment variable
 - GSAP entrance animation on page load
 
 ## Animation Strategy
@@ -219,7 +226,7 @@ No changes to the data pattern. All portfolio content stays in `lib/data.ts`. Ne
 ## Buy Me a Coffee Integration
 
 - Custom-styled button/link (not the default embed widget)
-- Links to `https://buymeacoffee.com/<username>` (user provides their BMC username)
+- Links to `https://buymeacoffee.com/premprakash.dev`
 - Appears in: About section on home page, Contact page info panel, Footer
 - Styled to match the dark theme — subtle, not aggressive
 
@@ -282,6 +289,11 @@ components/
   buy-me-coffee.tsx               # New: custom BMC button
   page-entrance.tsx               # New: GSAP page entrance animation wrapper
   scroll-animation.tsx            # New: reusable GSAP scroll wrapper
+
+app/
+  api/
+    contact/
+      route.ts                    # New: Resend email API route
 
 lib/
   blog.ts                         # New: MDX utilities (list, get, filter)
