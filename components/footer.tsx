@@ -1,47 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
-import SectionBackground from "./section-background";
+import { socialLinks } from "@/lib/data";
+import BuyMeCoffee from "./buy-me-coffee";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative py-12 overflow-hidden">
-      <SectionBackground />
-
-      <div className="container mx-auto px-4 md:px-6 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative py-8 border-t border-white/10"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <div className="text-gray-400 text-sm">© {currentYear} Prem Prakash Sharma. All rights reserved.</div>
-
-            <div className="text-gray-400 text-sm">
-              Built with{" "}
-              <a
-                href="https://nextjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/90 hover:text-white transition-colors duration-300"
-              >
-                Next.js
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/90 hover:text-white transition-colors duration-300"
-              >
-                Tailwind CSS
-              </a>
-            </div>
+    <footer className="border-t border-white/10 py-12">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-gray-400 text-sm">
+            &copy; {currentYear} Prem Prakash Sharma. All rights reserved.
           </div>
-        </motion.div>
+
+          <div className="flex items-center gap-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full"
+                aria-label={link.label}
+              >
+                <link.icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+
+          <BuyMeCoffee />
+        </div>
       </div>
     </footer>
   );

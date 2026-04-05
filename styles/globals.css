@@ -56,6 +56,24 @@
   }
 }
 
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card hover:border-white/20 transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-blue-200 to-violet-200 bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
+
 .animate-shimmer {
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;

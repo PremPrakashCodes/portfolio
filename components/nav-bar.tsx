@@ -1,30 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { DownloadIcon } from "lucide-react";
 
-const NavBar = () => {
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
+  { href: "/experience", label: "Experience" },
+  { href: "/contact", label: "Contact" },
+];
+
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "/#tech-stack", label: "Tech Stack" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/#contact", label: "Contact" },
-  ];
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <nav
@@ -38,36 +42,25 @@ const NavBar = () => {
       >
         Skip to main content
       </a>
-      
+
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
           >
-            <div className="relative h-8 w-8 md:h-10 md:w-10 rounded-full overflow-hidden border border-border/40">
-              <Image
-                src="/images/profile-image.png"
-                alt="Prem Prakash Sharma"
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-300"
-                sizes="(max-width: 768px) 32px, 40px"
-                priority
-              />
-            </div>
             <Link
               href="/"
-              className="text-base md:text-lg font-semibold text-blue-400 hover:opacity-80 transition-opacity truncate max-w-[160px] md:max-w-none"
+              className="text-base md:text-lg font-semibold text-blue-400 hover:opacity-80 transition-opacity"
             >
-              Prem Prakash Sharma
+              Prem Prakash
             </Link>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="hidden md:flex items-center justify-center gap-6 lg:gap-8"
+            className="hidden md:flex items-center gap-6 lg:gap-8"
           >
             {navLinks.map((link, index) => (
               <motion.div
@@ -78,10 +71,18 @@ const NavBar = () => {
               >
                 <Link
                   href={link.href}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group py-2"
+                  className={`relative text-sm font-medium transition-colors group py-2 ${
+                    pathname === link.href
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full" />
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all ${
+                      pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -116,7 +117,6 @@ const NavBar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="relative"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
@@ -157,8 +157,11 @@ const NavBar = () => {
                 >
                   <Link
                     href={link.href}
-                    className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
+                    className={`block py-3 text-sm font-medium transition-colors ${
+                      pathname === link.href
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -174,7 +177,6 @@ const NavBar = () => {
                   href="/Prem_Prakash_Sharma_Resume.pdf"
                   download
                   className="flex items-center gap-2 py-3 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <DownloadIcon className="w-4 h-4" />
                   Download Resume
@@ -186,6 +188,4 @@ const NavBar = () => {
       </AnimatePresence>
     </nav>
   );
-};
-
-export default NavBar;
+}
