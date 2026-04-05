@@ -17,8 +17,10 @@ function WireframeIcosahedron() {
     if (!meshRef.current) return;
     meshRef.current.rotation.x += delta * 0.1;
     meshRef.current.rotation.y += delta * 0.15;
-    meshRef.current.rotation.x += (pointer.y * 0.2 - meshRef.current.rotation.x) * 0.02;
-    meshRef.current.rotation.y += (pointer.x * 0.2 - meshRef.current.rotation.y) * 0.02;
+    meshRef.current.rotation.x +=
+      (pointer.y * 0.2 - meshRef.current.rotation.x) * 0.02;
+    meshRef.current.rotation.y +=
+      (pointer.x * 0.2 - meshRef.current.rotation.y) * 0.02;
   });
 
   return (
@@ -59,26 +61,28 @@ export default function ThreeHero() {
   }, []);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReduced) return;
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.fromTo(
       titleRef.current,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, delay: 0.2 }
+      { opacity: 1, y: 0, duration: 0.8, delay: 0.2 },
     )
       .fromTo(
         subtitleRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.3"
+        "-=0.3",
       )
       .fromTo(
         ctaRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.3"
+        "-=0.3",
       );
   }, []);
 
@@ -117,12 +121,14 @@ export default function ThreeHero() {
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0"
         >
-          Senior Fullstack Developer building production-grade web and AI
-          systems. Specializing in TypeScript, Python, and cloud-native
-          architecture.
+          Software Developer building web and AI systems. Specializing in
+          TypeScript, Python, and cloud native architecture.
         </p>
 
-        <div ref={ctaRef} className="flex flex-wrap justify-center gap-4 opacity-0">
+        <div
+          ref={ctaRef}
+          className="flex flex-wrap justify-center gap-4 opacity-0"
+        >
           <Button
             size="lg"
             className="rounded-full bg-blue-500 hover:bg-blue-600 text-white px-8 shadow-lg shadow-blue-500/25"
