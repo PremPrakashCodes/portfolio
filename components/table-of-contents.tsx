@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type TOCItem = {
   id: string;
@@ -10,9 +10,8 @@ type TOCItem = {
 
 export default function TableOfContents({ content }: { content: string }) {
   const [activeId, setActiveId] = useState("");
-  const [headings, setHeadings] = useState<TOCItem[]>([]);
 
-  useEffect(() => {
+  const headings = useMemo(() => {
     const items: TOCItem[] = [];
     const regex = /^#{2,3}\s+(.+)$/gm;
     let match;
@@ -25,7 +24,7 @@ export default function TableOfContents({ content }: { content: string }) {
         level,
       });
     }
-    setHeadings(items);
+    return items;
   }, [content]);
 
   useEffect(() => {

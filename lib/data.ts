@@ -76,7 +76,6 @@ export const projects = [
     ],
     github: "",
     demo: "",
-    icon: "🤖",
   },
   {
     title: "AI-Powered Document Classification",
@@ -95,16 +94,6 @@ export const projects = [
     ],
     github: "",
     demo: "",
-    icon: "📄",
-  },
-  {
-    title: "Suna Ai Agent",
-    description:
-      "Fixed EventSource memory leaks in the frontend API, improving application stability and performance. Refactored Supabase CLI usage to leverage npx supabase, enhancing setup reliability and developer experience.",
-    tags: ["Next.js", "Supabase", "API", "Performance Optimization"],
-    github: "https://github.com/different-ai/suna",
-    demo: "https://suna.sh",
-    icon: "🎯",
   },
   {
     title: "Brandiligence",
@@ -120,7 +109,6 @@ export const projects = [
     ],
     github: "",
     demo: "https://brandiligence.ai",
-    icon: "💳",
   },
 ] as const;
 

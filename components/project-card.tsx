@@ -10,7 +10,6 @@ type ProjectCardProps = {
   tags: readonly string[];
   github: string;
   demo: string;
-  icon: string;
 };
 
 export default function ProjectCard({
@@ -19,7 +18,6 @@ export default function ProjectCard({
   tags,
   github,
   demo,
-  icon,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -30,10 +28,7 @@ export default function ProjectCard({
       <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-blue-500/20 to-violet-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
 
       <div className="relative h-full flex flex-col glass-card p-8">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="bg-blue-500/10 border border-blue-500/20 p-3.5 rounded-xl text-2xl">
-            {icon}
-          </div>
+        <div className="mb-6">
           <h3 className="text-xl font-semibold text-white/90">{title}</h3>
         </div>
 

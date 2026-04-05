@@ -51,19 +51,19 @@ export default function ScrollAnimation({
       },
     };
 
+    let tween;
     if (animation === "stagger") {
-      gsap.fromTo(el.children, fromVars, {
+      tween = gsap.fromTo(el.children, fromVars, {
         ...toVars,
         stagger: staggerAmount,
       });
     } else {
-      gsap.fromTo(el, fromVars, toVars);
+      tween = gsap.fromTo(el, fromVars, toVars);
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === el) trigger.kill();
-      });
+      tween.scrollTrigger?.kill();
+      tween.kill();
     };
   }, [animation, delay, duration, staggerAmount]);
 
