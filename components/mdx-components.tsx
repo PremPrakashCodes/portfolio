@@ -21,7 +21,15 @@ function Callout({
   );
 }
 
+export function getMDXComponents(components: MDXComponents): MDXComponents {
+  return mdxComponents(components);
+}
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return mdxComponents(components);
+}
+
+function mdxComponents(components: MDXComponents): MDXComponents {
   return {
     h1: (props: ComponentPropsWithoutRef<"h1">) => (
       <h1 className="text-3xl font-bold mt-10 mb-4 gradient-text" {...props} />

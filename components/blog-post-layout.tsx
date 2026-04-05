@@ -2,12 +2,21 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import TableOfContents from "./table-of-contents";
 import { BlogPost } from "@/lib/blog";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { useMDXComponents } from "./mdx-components";
+import { evaluate } from "@mdx-js/mdx";
+import * as runtime from "react/jsx-runtime";
+import { getMDXComponents } from "./mdx-components";
 import rehypePrettyCode from "rehype-pretty-code";
 
-export default function BlogPostLayout({ post }: { post: BlogPost }) {
-  const components = useMDXComponents({});
+export default async function BlogPostLayout({ post }: { post: BlogPost }) {
+  const components = getMDXComponents({});
+
+  const { default: MDXContent } = await evaluate(post.content, {
+    ...runtime,
+    rehypePlugins: [
+      [rehypePrettyCode, { theme: "github-dark-dimmed" }],
+    ],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } as any);
 
   return (
     <article className="section-padding">
@@ -52,18 +61,7 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
 
         <div className="flex gap-16">
           <div className="max-w-3xl min-w-0 flex-1">
-            <MDXRemote
-              source={post.content}
-              components={components}
-              options={{
-                mdxOptions: {
-                  rehypePlugins: [
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    [rehypePrettyCode as any, { theme: "github-dark-dimmed" }],
-                  ],
-                },
-              }}
-            />
+            <MDXContent components={components} />
           </div>
           <TableOfContents content={post.content} />
         </div>
