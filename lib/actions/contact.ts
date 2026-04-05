@@ -29,7 +29,7 @@ export async function sendContactEmail(
   try {
     // Send notification to Prem
     await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: "Portfolio Contact <contact@premprakash.dev>",
       to: "premprakashsharma.dev@gmail.com",
       subject: `New message from ${name}`,
       html: `
@@ -43,7 +43,7 @@ export async function sendContactEmail(
 
     // Send confirmation to user
     await resend.emails.send({
-      from: "Prem Prakash Sharma <onboarding@resend.dev>",
+      from: "Prem Prakash Sharma <noreply@premprakash.dev>",
       to: email,
       subject: "Thanks for reaching out!",
       html: `
