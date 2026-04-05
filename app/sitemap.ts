@@ -1,30 +1,48 @@
-import { MetadataRoute } from 'next'
- 
-export default function sitemap(): MetadataRoute.Sitemap {
+import { MetadataRoute } from "next";
+import { getAllSlugs } from "@/lib/blog";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://premprakash.dev";
+
+  const blogSlugs = await getAllSlugs();
+  const blogPages = blogSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     {
-      url: 'https://premprakash.dev/',
+      url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: 'https://premprakash.dev/#tech-stack',
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://premprakash.dev/#projects',
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: 'https://premprakash.dev/#contact',
+      url: `${baseUrl}/experience`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
-  ]
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    ...blogPages,
+  ];
 }
