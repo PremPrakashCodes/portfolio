@@ -1,0 +1,73 @@
+import Link from "next/link";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import TableOfContents from "./table-of-contents";
+import { BlogPost } from "@/lib/blog";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { useMDXComponents } from "./mdx-components";
+import rehypePrettyCode from "rehype-pretty-code";
+
+export default function BlogPostLayout({ post }: { post: BlogPost }) {
+  const components = useMDXComponents({});
+
+  return (
+    <article className="section-padding">
+      <div className="container mx-auto px-4 md:px-6">
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-300 transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Blog
+        </Link>
+
+        <header className="max-w-3xl mb-12">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2.5 py-0.5 rounded-full text-xs bg-blue-500/10 border border-blue-500/20 text-blue-400"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight gradient-text mb-4">
+            {post.title}
+          </h1>
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              {new Date(post.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+            <span className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              {post.readTime}
+            </span>
+          </div>
+        </header>
+
+        <div className="flex gap-16">
+          <div className="max-w-3xl min-w-0 flex-1">
+            <MDXRemote
+              source={post.content}
+              components={components}
+              options={{
+                mdxOptions: {
+                  rehypePlugins: [
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    [rehypePrettyCode as any, { theme: "github-dark-dimmed" }],
+                  ],
+                },
+              }}
+            />
+          </div>
+          <TableOfContents content={post.content} />
+        </div>
+      </div>
+    </article>
+  );
+}
