@@ -27,16 +27,16 @@ export default function AboutSection() {
                 About Me
               </h2>
               <p className="text-gray-400 leading-relaxed text-lg">
-                I&apos;m a Software Developer at BigCircle, building production-grade
-                web and AI systems for enterprise use cases. I specialize in
-                TypeScript, Python, and cloud-native architecture — from type-safe
-                APIs with tRPC to LLM integration pipelines with observability
-                built in.
+                I&apos;m a Software Developer at BigCircle, building
+                production-grade web and AI systems for enterprise use cases. I
+                specialize in TypeScript, Python, and cloud-native architecture
+                from type-safe APIs with tRPC to LLM integration pipelines with
+                observability built in.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                When I&apos;m not shipping features, I contribute to open source and
-                write about fullstack development, AI systems, and engineering
-                best practices.
+                When I&apos;m not shipping features, I contribute to open source
+                and write about fullstack development, AI systems, and
+                engineering best practices.
               </p>
               <BuyMeCoffee />
             </div>
