@@ -18,8 +18,8 @@ export default function ProjectsPage() {
               Projects
             </h1>
             <p className="text-lg text-muted-foreground">
-              A collection of projects I&apos;ve built — from AI-powered systems to
-              fullstack web applications.
+              A collection of projects I&apos;ve built, from AI-powered systems
+              to fullstack web applications.
             </p>
           </div>
         </ScrollAnimation>
