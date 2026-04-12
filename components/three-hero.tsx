@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import TypingAnimation from "./typing-animation";
 
 function WireframeIcosahedron() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -110,18 +111,22 @@ export default function ThreeHero() {
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 opacity-0"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 opacity-0"
         >
           <span className="gradient-text">Prem Prakash</span>
           <br />
           <span className="text-foreground/90">Sharma</span>
         </h1>
 
+        <div className="text-xl md:text-2xl font-medium mb-6 h-8">
+          <TypingAnimation />
+        </div>
+
         <p
           ref={subtitleRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0"
         >
-          Software Developer building web and AI systems. Specializing in
+          Building production-grade web and AI systems. Specializing in
           TypeScript, Python, and cloud native architecture.
         </p>
 

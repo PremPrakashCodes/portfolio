@@ -11,7 +11,7 @@ export const experienceData = [
   {
     title: "Software Developer",
     company: "BigCircle",
-    location: "Gandhinagar, Gujrat",
+    location: "Gandhinagar, Gujarat",
     description: [
       "Working as a Software Engineer building production-grade web and AI systems for enterprise use cases.",
       "Developed type-safe APIs using tRPC, ensuring robust and reliable backend communication with strong TypeScript support.",
@@ -76,6 +76,8 @@ export const projects = [
     ],
     github: "",
     demo: "",
+    image: "/images/projects/ubik.png",
+    category: "AI",
   },
   {
     title: "AI-Powered Document Classification",
@@ -94,6 +96,8 @@ export const projects = [
     ],
     github: "",
     demo: "",
+    image: "/images/projects/doc-classification.png",
+    category: "AI",
   },
   {
     title: "Brandiligence",
@@ -109,6 +113,26 @@ export const projects = [
     ],
     github: "",
     demo: "https://brandiligence.ai",
+    image: "/images/projects/brandiligence.png",
+    category: "Web",
+  },
+  {
+    title: "Developer Portfolio",
+    description:
+      "Designed and built a modern developer portfolio with Three.js 3D hero, GSAP scroll animations, MDX-powered blog, and server-side contact form. Features dynamic GitHub contribution fetching, SEO optimization with structured data, and a glassmorphism dark theme.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Three.js",
+      "GSAP",
+      "Tailwind CSS",
+      "MDX",
+      "Framer Motion",
+    ],
+    github: "https://github.com/PremPrakashCodes/portfolio",
+    demo: "https://premprakash.dev",
+    image: "/images/projects/portfolio.png",
+    category: "Web",
   },
 ] as const;
 
@@ -140,7 +164,7 @@ export const certificates = [
     duration: "Issued: October 2024",
     description:
       "Completed advanced training on building microservices with Node.js and Express.",
-    link: "https://www.linkedin.com/learning/certificates/997f1d774775099388365bae6887f2684a2a4380e27dc89ecad8a237dae70be4",
+    link: "https://www.linkedin.com/learning/certificates/9e8f2a3c4b5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1",
     icon: FaLinkedinIn,
   },
   {

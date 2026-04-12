@@ -10,7 +10,7 @@ export default async function ContributionsGrid() {
   return (
     <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {contributions.map((repo) => (
-        <div key={repo.repo} className="glass-card p-6">
+        <div key={repo.repo} className="glass-card p-6 h-full">
           <div className="flex items-center gap-3 mb-4">
             <a
               href={repo.repoUrl}

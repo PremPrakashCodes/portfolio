@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import ExperienceTimeline from "@/components/experience-timeline";
 import TechStackGrid from "@/components/tech-stack-grid";
 import ContributionsGrid from "@/components/contributions-grid";
+import EducationCertifications from "@/components/education-certifications";
 import SectionHeader from "@/components/section-header";
 import ScrollAnimation from "@/components/scroll-animation";
 
 export const metadata: Metadata = {
   title: "Experience | Prem Prakash Sharma",
   description:
-    "Work experience, tech stack, and open source contributions.",
+    "Work experience, tech stack, certifications, and open source contributions.",
 };
 
 export default function ExperiencePage() {
@@ -25,6 +26,19 @@ export default function ExperiencePage() {
           </ScrollAnimation>
           <div className="mt-16">
             <ExperienceTimeline />
+          </div>
+        </section>
+
+        {/* Education & Certifications */}
+        <section>
+          <ScrollAnimation animation="fade-up">
+            <SectionHeader
+              title="Education & Certifications"
+              description="Academic background and professional credentials."
+            />
+          </ScrollAnimation>
+          <div className="mt-16">
+            <EducationCertifications />
           </div>
         </section>
 
@@ -57,3 +71,4 @@ export default function ExperiencePage() {
     </main>
   );
 }
+
