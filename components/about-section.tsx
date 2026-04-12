@@ -1,5 +1,4 @@
 import Image from "next/image";
-import BuyMeCoffee from "./buy-me-coffee";
 import ScrollAnimation from "./scroll-animation";
 
 export default function AboutSection() {
@@ -38,7 +37,6 @@ export default function AboutSection() {
                 and write about fullstack development, AI systems, and
                 engineering best practices.
               </p>
-              <BuyMeCoffee />
             </div>
           </div>
         </ScrollAnimation>

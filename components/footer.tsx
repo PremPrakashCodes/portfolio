@@ -1,5 +1,4 @@
 import { socialLinks } from "@/lib/data";
-import BuyMeCoffee from "./buy-me-coffee";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,8 +26,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <BuyMeCoffee />
-        </div>
+          </div>
       </div>
     </footer>
   );

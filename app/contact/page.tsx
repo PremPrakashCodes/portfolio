@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { socialLinks } from "@/lib/data";
 import { sendContactEmail } from "@/lib/actions/contact";
 import { contactSchema } from "@/lib/schemas/contact";
-import BuyMeCoffee from "@/components/buy-me-coffee";
 import { Send, Loader2 } from "lucide-react";
 
 export default function ContactPage() {
@@ -163,16 +162,6 @@ export default function ContactPage() {
                   </a>
                 ))}
               </div>
-            </div>
-
-            <div className="glass-card p-6 space-y-4">
-              <h2 className="text-lg font-semibold text-white/90">
-                Support My Work
-              </h2>
-              <p className="text-sm text-gray-400">
-                If you find my work helpful, consider buying me a coffee.
-              </p>
-              <BuyMeCoffee />
             </div>
           </motion.div>
         </div>
