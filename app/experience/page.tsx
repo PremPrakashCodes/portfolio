@@ -56,19 +56,20 @@ export default function ExperiencePage() {
         </section>
 
         {/* Open Source */}
-        <section>
-          <ScrollAnimation animation="fade-up">
-            <SectionHeader
-              title="Open Source"
-              description="Contributions to the open source community."
-            />
-          </ScrollAnimation>
-          <div className="mt-16">
-            <ContributionsGrid />
-          </div>
-        </section>
+        {process.env.NEXT_PUBLIC_GITHUB_USERNAME && (
+          <section>
+            <ScrollAnimation animation="fade-up">
+              <SectionHeader
+                title="Open Source"
+                description="Contributions to the open source community."
+              />
+            </ScrollAnimation>
+            <div className="mt-16">
+              <ContributionsGrid />
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );
 }
-

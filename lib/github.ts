@@ -28,9 +28,11 @@ type GitHubSearchResponse = {
   items: GitHubSearchItem[];
 };
 
-const GITHUB_USERNAME = "PremPrakashCodes";
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 
-export async function fetchExternalContributions(): Promise<RepoContributions[]> {
+export async function fetchExternalContributions(): Promise<
+  RepoContributions[]
+> {
   try {
     const res = await fetch(
       `https://api.github.com/search/issues?q=author:${GITHUB_USERNAME}+type:pr&per_page=100`,
@@ -39,7 +41,7 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
           Accept: "application/vnd.github.v3+json",
         },
         next: { revalidate: 86400 },
-      }
+      },
     );
 
     if (!res.ok) return [];
@@ -49,7 +51,10 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
     const grouped = new Map<string, RepoContributions>();
 
     for (const item of data.items) {
-      const repoFullName = item.repository_url.replace("https://api.github.com/repos/", "");
+      const repoFullName = item.repository_url.replace(
+        "https://api.github.com/repos/",
+        "",
+      );
       const [owner] = repoFullName.split("/");
 
       if (owner === GITHUB_USERNAME) continue;
@@ -86,13 +91,10 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
     await Promise.all(
       repos.map(async (repo) => {
         try {
-          const res = await fetch(
-            `https://api.github.com/repos/${repo.repo}`,
-            {
-              headers: { Accept: "application/vnd.github.v3+json" },
-              next: { revalidate: 86400 },
-            }
-          );
+          const res = await fetch(`https://api.github.com/repos/${repo.repo}`, {
+            headers: { Accept: "application/vnd.github.v3+json" },
+            next: { revalidate: 86400 },
+          });
           if (res.ok) {
             const data = await res.json();
             repo.stars = data.stargazers_count ?? 0;
@@ -100,7 +102,7 @@ export async function fetchExternalContributions(): Promise<RepoContributions[]>
         } catch {
           // stars default to 0
         }
-      })
+      }),
     );
 
     return repos;
