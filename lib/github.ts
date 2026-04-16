@@ -3,6 +3,7 @@ export type Contribution = {
   url: string;
   state: "merged" | "closed" | "open";
   createdAt: string;
+  mergedAt: string | null;
 };
 
 export type RepoContributions = {
@@ -72,6 +73,7 @@ export async function fetchExternalContributions(): Promise<
         url: item.html_url,
         state,
         createdAt: item.created_at,
+        mergedAt: item.pull_request?.merged_at ?? null,
       };
 
       if (!grouped.has(repoFullName)) {
