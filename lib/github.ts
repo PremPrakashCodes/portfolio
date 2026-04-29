@@ -107,6 +107,17 @@ export async function fetchExternalContributions(): Promise<
       }),
     );
 
+    console.log("Fetched contributions for", repos.length, "repos");
+    console.log(
+      "Contributions:",
+      repos.map((r, i) => ({
+        id: i + 1,
+        repo: r.repo,
+        prs: r.prs.length,
+        stars: r.stars,
+      })),
+    );
+
     return repos;
   } catch {
     return [];
