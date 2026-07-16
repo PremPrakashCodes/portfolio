@@ -13,11 +13,10 @@ export const experienceData = [
     company: "BigCircle",
     location: "Gandhinagar, Gujarat",
     description: [
-      "Working as a Software Engineer building production-grade web and AI systems for enterprise use cases.",
-      "Developed type-safe APIs using tRPC, ensuring robust and reliable backend communication with strong TypeScript support.",
-      "Built scalable backend services using Python (FastAPI) and Node.js, with secure REST APIs.",
-      "Implemented LLM routing, logging, and observability using LiteLLM and Langfuse.",
-      "Containerized applications with Docker and deployed services on AWS.",
+      "Designed and developed type-safe backend services using FastAPI, Node.js, TypeScript, and tRPC, improving API reliability and reducing frontend-backend integration issues.",
+      "Built and integrated LLM-powered workflows with LiteLLM and Langfuse, implementing routing, logging, tracing, and observability to accelerate production debugging and improve AI system reliability.",
+      "Containerized applications using Docker and deployed production workloads on AWS, establishing repeatable deployment pipelines and improving release consistency through CI/CD practices.",
+      "Collaborated closely with frontend engineers and product stakeholders to deliver scalable, production-ready features across AI and enterprise applications.",
     ],
     date: "Oct 2024 - Present",
   },
@@ -26,9 +25,10 @@ export const experienceData = [
     company: "Freelance",
     location: "Remote",
     description: [
-      "Developed responsive websites and web applications for clients using HTML, CSS, JavaScript, and React.",
-      "Implemented RESTful APIs and integrated third-party services to enhance website functionality.",
-      "Collaborated with clients to gather requirements, optimize workflows, and ensure timely project delivery.",
+      "Built responsive full-stack web applications using React, JavaScript, HTML, CSS, and REST APIs for multiple business clients.",
+      "Designed and integrated third-party APIs and backend services to extend platform functionality while maintaining system stability.",
+      "Worked directly with clients to gather requirements, translate business needs into technical solutions, and deliver projects within aggressive timelines.",
+      "Optimized application performance and user experience through responsive design and reusable frontend components.",
     ],
     date: "Aug 2023 - Oct 2024",
   },
@@ -61,7 +61,7 @@ export const projects = [
   {
     title: "Ubik",
     description:
-      "Built a C-level executive AI desktop assistant to automate operational and decision-support workflows. Designed multi-agent AI architecture (Planner, Executor, Awareness) for task orchestration. Integrated Gmail using Google Workspace APIs with webhooks for automatic email labeling, summarization, and prioritization.",
+      "Built a multi-agent AI desktop assistant to automate executive workflows including scheduling, meetings, and email management. Designed multi-agent AI architecture (Planner, Executor, Awareness) for task orchestration. Integrated Google Workspace APIs and webhook-based automation for Gmail, enabling intelligent email labeling, summarization, and prioritization.",
     tags: [
       "Python",
       "FastAPI",
@@ -82,7 +82,7 @@ export const projects = [
   {
     title: "AI-Powered Document Classification",
     description:
-      "Built an AI-driven internal system to automatically classify document types and extract structured information at scale. Implemented event-driven architecture with Outlook webhooks. Designed scalable background processing using Redis and Dramatiq. Developed OCR-based extraction pipelines with AI image-based analysis fallback.",
+      "Developed an event-driven document processing platform where Outlook webhooks automatically validated, queued, and processed incoming documents. Implemented scalable background processing using Redis and Dramatiq to maintain responsiveness under heavy workloads. Built OCR pipelines supporting PDF, DOCX, and XLSX with OpenAI Vision fallback models to improve extraction accuracy on complex documents.",
     tags: [
       "Python",
       "Next.js",

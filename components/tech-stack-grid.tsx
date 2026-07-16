@@ -8,27 +8,33 @@ import {
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
+  SiElectron,
   SiNodedotjs,
   SiExpress,
   SiFastapi,
+  SiTrpc,
   SiMongodb,
   SiPostgresql,
   SiRedis,
+  SiSupabase,
+  SiPrisma,
+  SiDrizzle,
+  SiSqlalchemy,
+  SiOpenai,
   SiDocker,
   SiAmazonwebservices,
+  SiGithubactions,
   SiGit,
-  SiGraphql,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { FaRobot, FaChartLine } from "react-icons/fa";
 
 const categories = [
   {
     name: "Languages",
     items: [
+      { label: "Python", icon: SiPython, color: "#3776ab" },
       { label: "TypeScript", icon: SiTypescript, color: "#3178c6" },
       { label: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
-      { label: "Python", icon: SiPython, color: "#3776ab" },
-      { label: "Java", icon: FaJava, color: "#f89820" },
     ],
   },
   {
@@ -37,30 +43,44 @@ const categories = [
       { label: "React", icon: SiReact, color: "#61dafb" },
       { label: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
       { label: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
+      { label: "Electron", icon: SiElectron, color: "#47848f" },
     ],
   },
   {
-    name: "Backend",
+    name: "Backend & APIs",
     items: [
       { label: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { label: "Express", icon: SiExpress, color: "#ffffff" },
       { label: "FastAPI", icon: SiFastapi, color: "#009688" },
-      { label: "GraphQL", icon: SiGraphql, color: "#e10098" },
+      { label: "tRPC", icon: SiTrpc, color: "#398ccb" },
     ],
   },
   {
-    name: "Database",
+    name: "Databases & ORM",
     items: [
       { label: "PostgreSQL", icon: SiPostgresql, color: "#4169e1" },
       { label: "MongoDB", icon: SiMongodb, color: "#47a248" },
       { label: "Redis", icon: SiRedis, color: "#dc382d" },
+      { label: "Supabase", icon: SiSupabase, color: "#3ecf8e" },
+      { label: "Prisma", icon: SiPrisma, color: "#5a67d8" },
+      { label: "Drizzle", icon: SiDrizzle, color: "#c5f74f" },
+      { label: "SQLAlchemy", icon: SiSqlalchemy, color: "#d71f00" },
     ],
   },
   {
-    name: "DevOps & Cloud",
+    name: "AI & LLM",
+    items: [
+      { label: "OpenAI", icon: SiOpenai, color: "#ffffff" },
+      { label: "LiteLLM", icon: FaRobot, color: "#22c55e" },
+      { label: "Langfuse", icon: FaChartLine, color: "#e11d48" },
+    ],
+  },
+  {
+    name: "Cloud & DevOps",
     items: [
       { label: "Docker", icon: SiDocker, color: "#2496ed" },
       { label: "AWS", icon: SiAmazonwebservices, color: "#ff9900" },
+      { label: "GitHub Actions", icon: SiGithubactions, color: "#2088ff" },
       { label: "Git", icon: SiGit, color: "#f05032" },
     ],
   },

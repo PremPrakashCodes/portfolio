@@ -26,16 +26,18 @@ export default function AboutSection() {
                 About Me
               </h2>
               <p className="text-gray-400 leading-relaxed text-lg">
-                I&apos;m a Software Developer at BigCircle, building
-                production-grade web and AI systems for enterprise use cases. I
-                specialize in TypeScript, Python, and cloud-native architecture
-                from type-safe APIs with tRPC to LLM integration pipelines with
+                I&apos;m a Software Developer with 2+ years of experience
+                building scalable web applications, AI-powered systems, and
+                cloud-native backend services. I specialize in Python,
+                TypeScript, and cloud-native architecture from type-safe APIs
+                with tRPC to event-driven pipelines and LLM integrations with
                 observability built in.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                When I&apos;m not shipping features, I contribute to open source
-                and write about fullstack development, AI systems, and
-                engineering best practices.
+                I&apos;m an active open-source contributor, with merged
+                contributions to projects totaling 80k+ GitHub stars. When
+                I&apos;m not shipping features, I write about fullstack
+                development, AI systems, and engineering best practices.
               </p>
             </div>
           </div>
