@@ -14,7 +14,7 @@ export default function HeroSection() {
             Software developer · AI and backend systems
           </p>
 
-          <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+          <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-foreground sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem] xl:text-[5.25rem]">
             Building production <span className="highlight-text">AI systems</span>{" "}
             that hold up in the real world.
           </h1>
@@ -53,8 +53,8 @@ export default function HeroSection() {
                   : "lg:border-l lg:pl-5",
               )}
             >
-              <dt className="max-w-44 text-sm leading-5 text-muted-foreground">{point.label}</dt>
-              <dd className="order-first mb-1 font-mono text-lg font-medium text-primary">{point.value}</dd>
+              <dd className="font-mono text-xl font-medium text-primary">{point.value}</dd>
+              <dt className="mt-1 max-w-44 text-sm leading-5 text-muted-foreground">{point.label}</dt>
             </div>
           ))}
         </dl>

@@ -31,6 +31,7 @@ const highlights = [
 ] as const;
 
 const sectionLinks = [
+  { href: "#currently", label: "Currently" },
   { href: "#work", label: "Work" },
   { href: "#open-source", label: "Open source" },
   { href: "#capabilities", label: "Capabilities" },
@@ -88,6 +89,34 @@ export default function ExperiencePage() {
           ))}
         </nav>
       </header>
+
+      <section id="currently" className="scroll-mt-24 pt-16 md:pt-20" aria-labelledby="currently-title">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid border-y border-border py-8 md:grid-cols-[0.72fr_1.28fr] md:gap-12 md:py-10 lg:gap-20">
+            <div>
+              <p className="section-kicker">Currently</p>
+              <h2 id="currently-title" className="mt-3 max-w-md text-balance text-3xl font-semibold tracking-[-0.035em] text-foreground md:text-4xl">
+                Software Developer at BigCircle.
+              </h2>
+            </div>
+
+            <dl className="mt-8 grid gap-7 sm:grid-cols-2 md:mt-0">
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-primary">Building</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Type-safe backend services, observable LLM workflows, and repeatable production deployments.
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-primary">Interested in</dt>
+                <dd className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Thoughtful product, backend, and applied AI work where reliability matters as much as the idea.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
 
       <section id="work" className="scroll-mt-24 pt-24 md:pt-32" aria-labelledby="work-title">
         <div className="container mx-auto px-4 md:px-6">
