@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import NavBar from "@/components/nav-bar";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/lib/site";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -109,6 +110,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster />
+        <SpeedInsights />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
