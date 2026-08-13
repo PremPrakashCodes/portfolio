@@ -77,8 +77,7 @@ export default function Footer() {
             &copy; {currentYear} Prem Prakash Sharma. All rights reserved.
           </div>
           <div className="text-gray-600 text-xs flex items-center gap-1">
-            Built with Next.js & Three.js
-            <span className="text-red-400">♥</span>
+            Built with Next.js, TypeScript, and care
           </div>
         </div>
       </div>

@@ -1,73 +1,46 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { educationData, certificates } from "@/lib/data";
-import { GraduationCap, Award, ExternalLink } from "lucide-react";
-import ScrollAnimation from "./scroll-animation";
+import { ArrowUpRight, Award, GraduationCap } from "lucide-react";
+import { certificates, educationData } from "@/lib/data";
 
 export default function EducationCertifications() {
   return (
-    <div className="space-y-20">
-      {/* Education */}
-      <div>
-        <h3 className="flex items-center gap-3 text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
-          <GraduationCap className="w-5 h-5 text-blue-400" />
-          Education
-        </h3>
-        <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <section aria-labelledby="education-list-title">
+        <div className="flex items-center gap-3">
+          <GraduationCap aria-hidden="true" className="size-5 text-signal" />
+          <h3 id="education-list-title" className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Education</h3>
+        </div>
+        <div className="mt-7 border-y border-border">
           {educationData.map((edu) => (
-            <div key={edu.id} className="glass-card p-6">
-              <span className="text-xs text-blue-400 font-medium">
-                {edu.duration}
-              </span>
-              <h4 className="text-lg font-semibold text-white/90 mt-1">
-                {edu.title}
-              </h4>
-              <p className="text-sm text-gray-500 mt-0.5">{edu.institution}</p>
-              <p className="text-sm text-gray-400 leading-relaxed mt-3">
-                {edu.description}
-              </p>
-            </div>
+            <article key={edu.id} className="border-b border-border py-7 last:border-b-0">
+              <p className="font-mono text-xs text-primary">{edu.duration}</p>
+              <h4 className="mt-3 text-xl font-medium tracking-tight text-foreground">{edu.title}</h4>
+              <p className="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{edu.description}</p>
+            </article>
           ))}
-        </ScrollAnimation>
-      </div>
+        </div>
+      </section>
 
-      {/* Certifications */}
-      <div>
-        <h3 className="flex items-center gap-3 text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
-          <Award className="w-5 h-5 text-blue-400" />
-          Certifications
-        </h3>
-        <ScrollAnimation animation="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section aria-labelledby="certifications-list-title">
+        <div className="flex items-center gap-3">
+          <Award aria-hidden="true" className="size-5 text-signal" />
+          <h3 id="certifications-list-title" className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Credentials</h3>
+        </div>
+        <div className="mt-7 border-y border-border">
           {certificates.map((cert) => (
-            <motion.a
-              key={cert.id}
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="group glass-card-hover p-6 block"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                  <cert.icon className="w-5 h-5 text-blue-400" />
+            <a key={cert.id} href={cert.link} target="_blank" rel="noreferrer" className="group grid gap-3 border-b border-border py-5 last:border-b-0 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div className="flex min-w-0 items-start gap-3">
+                <cert.icon aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
+                <div>
+                  <h4 className="font-medium text-foreground transition-colors group-hover:text-primary">{cert.title}</h4>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">{cert.institution} · {cert.duration.replace("Issued: ", "")}</p>
                 </div>
-                <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-blue-400 transition-colors" />
               </div>
-              <h4 className="text-base font-semibold text-white/90 mt-3 group-hover:text-blue-400 transition-colors">
-                {cert.title}
-              </h4>
-              <p className="text-xs text-gray-500 mt-1">
-                {cert.institution} · {cert.duration}
-              </p>
-              <p className="text-sm text-gray-400 leading-relaxed mt-2">
-                {cert.description}
-              </p>
-            </motion.a>
+              <ArrowUpRight aria-hidden="true" className="ml-7 size-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary sm:ml-0" />
+            </a>
           ))}
-        </ScrollAnimation>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

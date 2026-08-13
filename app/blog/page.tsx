@@ -4,9 +4,10 @@ import BlogCard from "@/components/blog-card";
 import ScrollAnimation from "@/components/scroll-animation";
 
 export const metadata: Metadata = {
-  title: "Blog | Prem Prakash Sharma",
+  title: "Writing",
   description:
     "Thoughts on fullstack development, AI systems, and engineering best practices.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogPage() {
@@ -17,7 +18,7 @@ export default async function BlogPage() {
       <div className="container mx-auto px-4 md:px-6">
         <ScrollAnimation animation="fade-up">
           <div className="max-w-2xl mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight gradient-text mb-4">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
               Blog
             </h1>
             <p className="text-lg text-muted-foreground">

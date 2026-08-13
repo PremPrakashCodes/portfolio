@@ -1,28 +1,25 @@
 import { Metadata } from "next";
 import ProjectFilter from "@/components/project-filter";
-import ScrollAnimation from "@/components/scroll-animation";
 
 export const metadata: Metadata = {
-  title: "Projects | Prem Prakash Sharma",
+  title: "Projects",
   description:
-    "Featured projects showcasing fullstack development, AI systems, and enterprise applications.",
+    "Case studies in production AI systems, event-driven document processing, payment infrastructure, and full-stack product development.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
   return (
     <main id="main-content" className="section-padding">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollAnimation animation="fade-up">
-          <div className="max-w-2xl mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight gradient-text mb-4">
-              Projects
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              A collection of projects I&apos;ve built, from AI-powered systems
-              to fullstack web applications.
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div className="mb-14 max-w-3xl">
+          <p className="section-kicker">Case studies</p>
+          <h1 className="section-title mt-3">Selected engineering work.</h1>
+          <p className="mt-5 text-pretty text-lg leading-8 text-muted-foreground">
+            Production systems shaped by operational constraints, product goals,
+            and the need to remain understandable after launch.
+          </p>
+        </div>
 
         <ProjectFilter />
       </div>

@@ -1,83 +1,96 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 type ProjectCardProps = {
+  slug: string;
   title: string;
+  eyebrow: string;
+  outcome: string;
   description: string;
   tags: readonly string[];
   github: string;
   demo: string;
   image?: string;
-  category?: string;
+  imageAlt?: string;
 };
 
 export default function ProjectCard({
+  slug,
   title,
-  description,
+  eyebrow,
+  outcome,
   tags,
   github,
   demo,
+  image,
+  imageAlt,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -4, scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-      className="group relative h-full"
-    >
-      <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-blue-500/20 to-violet-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
-
-      <div className="relative h-full flex flex-col glass-card overflow-hidden">
-        <div className="flex flex-col flex-1 p-8">
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold text-white/90">{title}</h3>
-          </div>
-
-          <p className="text-sm leading-relaxed text-gray-400 flex-1">
-            {description}
-          </p>
-
-          <div className="mt-6">
-            <div className="flex flex-wrap gap-2 mb-6">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full text-xs bg-white/[0.03] border border-white/10 text-white/80"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-              {github && (
-                <Link
-                  href={github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  <FaGithub className="w-4 h-4" />
-                  Source
-                </Link>
-              )}
-              {demo && (
-                <Link
-                  href={demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors ml-auto"
-                >
-                  Live Demo
-                  <FaExternalLinkAlt className="w-3 h-3" />
-                </Link>
-              )}
-            </div>
-          </div>
+    <Card className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-card/50 shadow-none transition-colors hover:border-primary/40">
+      {image && (
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
+          <Image
+            src={image}
+            alt={imageAlt || ""}
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card/45 via-transparent to-transparent" aria-hidden="true" />
         </div>
-      </div>
-    </motion.div>
+      )}
+      <CardHeader className="gap-5 p-6 md:p-8">
+        <div className="flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          <span>{eyebrow}</span>
+          <span aria-hidden="true">↗</span>
+        </div>
+        <CardTitle>
+          <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
+            <Link href={`/projects/${slug}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <span className="absolute inset-0" aria-hidden="true" />
+              {title}
+            </Link>
+          </h2>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="flex flex-1 flex-col gap-6 px-6 pb-6 md:px-8 md:pb-8">
+        <p className="max-w-xl text-lg leading-7 text-muted-foreground">{outcome}</p>
+        <ul className="mt-auto flex flex-wrap gap-2" aria-label="Technologies used">
+          {tags.slice(0, 6).map((tag) => (
+            <li key={tag} className="rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-[0.7rem] text-muted-foreground">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+
+      <CardFooter className="relative flex-wrap gap-4 border-t border-border px-6 py-5 md:px-8">
+        <Link href={`/projects/${slug}`} className="link-arrow relative z-10">
+          Read case study
+          <ArrowRight aria-hidden="true" className="size-4" />
+        </Link>
+        <div className="ml-auto flex gap-4">
+          {github && (
+            <a href={github} target="_blank" rel="noreferrer" className="relative z-10 text-muted-foreground transition-colors hover:text-foreground" aria-label={`${title} source code`}>
+              <Github aria-hidden="true" className="size-4" />
+            </a>
+          )}
+          {demo && (
+            <a href={demo} target="_blank" rel="noreferrer" className="relative z-10 text-muted-foreground transition-colors hover:text-foreground" aria-label={`${title} live website`}>
+              <ArrowUpRight aria-hidden="true" className="size-4" />
+            </a>
+          )}
+        </div>
+      </CardFooter>
+    </Card>
   );
 }

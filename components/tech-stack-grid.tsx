@@ -1,112 +1,94 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
-  SiTypescript,
+  SiAmazonwebservices,
+  SiDocker,
+  SiFastapi,
+  SiGithubactions,
   SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenai,
+  SiPostgresql,
   SiPython,
   SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiElectron,
-  SiNodedotjs,
-  SiExpress,
-  SiFastapi,
-  SiTrpc,
-  SiMongodb,
-  SiPostgresql,
   SiRedis,
-  SiSupabase,
-  SiPrisma,
-  SiDrizzle,
-  SiSqlalchemy,
-  SiOpenai,
-  SiDocker,
-  SiAmazonwebservices,
-  SiGithubactions,
-  SiGit,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
-import { FaRobot, FaChartLine } from "react-icons/fa";
+import { Braces, Database, Orbit, ServerCog } from "lucide-react";
 
 const categories = [
   {
-    name: "Languages",
+    name: "Languages & product UI",
+    description: "Typed interfaces and responsive experiences that stay easy to evolve.",
+    icon: Braces,
     items: [
-      { label: "Python", icon: SiPython, color: "#3776ab" },
-      { label: "TypeScript", icon: SiTypescript, color: "#3178c6" },
-      { label: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
-    ],
-  },
-  {
-    name: "Frontend",
-    items: [
-      { label: "React", icon: SiReact, color: "#61dafb" },
-      { label: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
-      { label: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
-      { label: "Electron", icon: SiElectron, color: "#47848f" },
+      { label: "Python", icon: SiPython },
+      { label: "TypeScript", icon: SiTypescript },
+      { label: "JavaScript", icon: SiJavascript },
+      { label: "React", icon: SiReact },
+      { label: "Next.js", icon: SiNextdotjs },
+      { label: "Tailwind CSS", icon: SiTailwindcss },
     ],
   },
   {
     name: "Backend & APIs",
+    description: "Type-safe services, integrations, and asynchronous workflows built for production.",
+    icon: ServerCog,
     items: [
-      { label: "Node.js", icon: SiNodedotjs, color: "#339933" },
-      { label: "Express", icon: SiExpress, color: "#ffffff" },
-      { label: "FastAPI", icon: SiFastapi, color: "#009688" },
-      { label: "tRPC", icon: SiTrpc, color: "#398ccb" },
+      { label: "Node.js", icon: SiNodedotjs },
+      { label: "FastAPI", icon: SiFastapi },
+      { label: "tRPC" },
+      { label: "Express" },
+      { label: "REST APIs" },
+      { label: "Dramatiq" },
     ],
   },
   {
-    name: "Databases & ORM",
+    name: "Data & persistence",
+    description: "Practical data models, queues, and storage choices for reliable systems.",
+    icon: Database,
     items: [
-      { label: "PostgreSQL", icon: SiPostgresql, color: "#4169e1" },
-      { label: "MongoDB", icon: SiMongodb, color: "#47a248" },
-      { label: "Redis", icon: SiRedis, color: "#dc382d" },
-      { label: "Supabase", icon: SiSupabase, color: "#3ecf8e" },
-      { label: "Prisma", icon: SiPrisma, color: "#5a67d8" },
-      { label: "Drizzle", icon: SiDrizzle, color: "#c5f74f" },
-      { label: "SQLAlchemy", icon: SiSqlalchemy, color: "#d71f00" },
+      { label: "PostgreSQL", icon: SiPostgresql },
+      { label: "MongoDB", icon: SiMongodb },
+      { label: "Redis", icon: SiRedis },
+      { label: "Supabase" },
+      { label: "SQLAlchemy" },
+      { label: "Prisma / Drizzle" },
     ],
   },
   {
-    name: "AI & LLM",
+    name: "AI, cloud & operations",
+    description: "Observable LLM workflows and repeatable delivery from container to cloud.",
+    icon: Orbit,
     items: [
-      { label: "OpenAI", icon: SiOpenai, color: "#ffffff" },
-      { label: "LiteLLM", icon: FaRobot, color: "#22c55e" },
-      { label: "Langfuse", icon: FaChartLine, color: "#e11d48" },
+      { label: "OpenAI", icon: SiOpenai },
+      { label: "LiteLLM" },
+      { label: "Langfuse" },
+      { label: "Docker", icon: SiDocker },
+      { label: "AWS", icon: SiAmazonwebservices },
+      { label: "GitHub Actions", icon: SiGithubactions },
     ],
   },
-  {
-    name: "Cloud & DevOps",
-    items: [
-      { label: "Docker", icon: SiDocker, color: "#2496ed" },
-      { label: "AWS", icon: SiAmazonwebservices, color: "#ff9900" },
-      { label: "GitHub Actions", icon: SiGithubactions, color: "#2088ff" },
-      { label: "Git", icon: SiGit, color: "#f05032" },
-    ],
-  },
-];
+] as const;
 
 export default function TechStackGrid() {
   return (
-    <div className="space-y-12">
-      {categories.map((category) => (
-        <div key={category.name}>
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">
-            {category.name}
-          </h3>
-          <div className="flex flex-wrap gap-3">
+    <div className="grid border-x border-t border-border md:grid-cols-2">
+      {categories.map((category, index) => (
+        <article key={category.name} className={`border-b border-border p-6 md:p-8 ${index % 2 === 0 ? "md:border-r" : ""}`}>
+          <category.icon aria-hidden="true" className="size-5 text-signal" />
+          <h3 className="mt-5 text-xl font-medium tracking-tight text-foreground">{category.name}</h3>
+          <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">{category.description}</p>
+          <ul className="mt-6 flex flex-wrap gap-2">
             {category.items.map((item) => (
-              <motion.div
-                key={item.label}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="glass-card-hover flex items-center gap-3 px-4 py-3"
-              >
-                <item.icon className="w-5 h-5" style={{ color: item.color }} />
-                <span className="text-sm text-white/80">{item.label}</span>
-              </motion.div>
+              <li key={item.label} className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-2 text-xs text-foreground">
+                {"icon" in item && item.icon ? <item.icon aria-hidden="true" className="size-3.5 text-primary" /> : null}
+                {item.label}
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </article>
       ))}
     </div>
   );

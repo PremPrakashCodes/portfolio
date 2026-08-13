@@ -113,7 +113,7 @@ export default function ThreeHero() {
           ref={titleRef}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 opacity-0"
         >
-          <span className="gradient-text">Prem Prakash</span>
+          <span className="highlight-text">Prem Prakash</span>
           <br />
           <span className="text-foreground/90">Sharma</span>
         </h1>
@@ -136,7 +136,7 @@ export default function ThreeHero() {
         >
           <Button
             size="lg"
-            className="rounded-full bg-blue-500 hover:bg-blue-600 text-white px-8 shadow-lg shadow-blue-500/25"
+            className="rounded-full"
             asChild
           >
             <Link href="/projects" className="flex items-center gap-2">

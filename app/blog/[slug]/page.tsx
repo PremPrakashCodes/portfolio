@@ -18,13 +18,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   return {
-    title: `${post.title} | Prem Prakash Sharma`,
+    title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      url: `/blog/${slug}`,
+      images: post.image ? [{ url: post.image }] : undefined,
     },
   };
 }

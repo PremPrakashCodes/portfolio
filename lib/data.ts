@@ -11,7 +11,6 @@ export const experienceData = [
   {
     title: "Software Developer",
     company: "BigCircle",
-    location: "Gandhinagar, Gujarat",
     description: [
       "Designed and developed type-safe backend services using FastAPI, Node.js, TypeScript, and tRPC, improving API reliability and reducing frontend-backend integration issues.",
       "Built and integrated LLM-powered workflows with LiteLLM and Langfuse, implementing routing, logging, tracing, and observability to accelerate production debugging and improve AI system reliability.",
@@ -59,9 +58,22 @@ export const socialLinks = [
 
 export const projects = [
   {
+    slug: "ubik",
     title: "Ubik",
+    eyebrow: "Multi-agent desktop assistant",
+    outcome: "Automated executive workflows across email, meetings, and scheduling.",
     description:
       "Built a multi-agent AI desktop assistant to automate executive workflows including scheduling, meetings, and email management. Designed multi-agent AI architecture (Planner, Executor, Awareness) for task orchestration. Integrated Google Workspace APIs and webhook-based automation for Gmail, enabling intelligent email labeling, summarization, and prioritization.",
+    role: "Backend and AI systems development",
+    challenge:
+      "Executive workflows span multiple tools, require context, and need predictable orchestration rather than a single prompt-response loop.",
+    approach:
+      "Designed Planner, Executor, and Awareness agents around FastAPI services, persisted state in PostgreSQL, and added LiteLLM and Langfuse for model routing, tracing, and operational visibility.",
+    highlights: [
+      "Integrated Google Workspace APIs and Gmail webhooks",
+      "Built observable multi-agent task orchestration",
+      "Containerized and deployed the platform on AWS",
+    ],
     tags: [
       "Python",
       "FastAPI",
@@ -76,13 +88,27 @@ export const projects = [
     ],
     github: "",
     demo: "",
-    image: "/images/projects/ubik.png",
+    image: "/images/projects/ubik-ai-orchestration.webp",
+    imageAlt: "Abstract visualization of three AI agents coordinating through a central orchestration system",
     category: "AI",
   },
   {
+    slug: "document-classification",
     title: "AI-Powered Document Classification",
+    eyebrow: "Event-driven document intelligence",
+    outcome: "Processed incoming business documents asynchronously without blocking the product experience.",
     description:
       "Developed an event-driven document processing platform where Outlook webhooks automatically validated, queued, and processed incoming documents. Implemented scalable background processing using Redis and Dramatiq to maintain responsiveness under heavy workloads. Built OCR pipelines supporting PDF, DOCX, and XLSX with OpenAI Vision fallback models to improve extraction accuracy on complex documents.",
+    role: "Backend architecture and AI pipeline development",
+    challenge:
+      "Documents arrived in different formats and volumes, while OCR quality varied enough that a single extraction path could not be trusted.",
+    approach:
+      "Separated webhook ingestion from processing with Redis and Dramatiq, then built format-aware extraction pipelines with an OpenAI Vision fallback for complex documents.",
+    highlights: [
+      "Handled PDF, DOCX, and XLSX inputs",
+      "Kept request paths responsive with background processing",
+      "Added model fallback for difficult extraction cases",
+    ],
     tags: [
       "Python",
       "Next.js",
@@ -96,13 +122,27 @@ export const projects = [
     ],
     github: "",
     demo: "",
-    image: "/images/projects/doc-classification.png",
+    image: "/images/projects/document-classification-pipeline.webp",
+    imageAlt: "Abstract visualization of documents flowing through an intelligent classification pipeline",
     category: "AI",
   },
   {
+    slug: "brandiligence",
     title: "Brandiligence",
+    eyebrow: "Subscription payments",
+    outcome: "Migrated the payment system from Stripe to PayPal while preserving customer access.",
     description:
       "Implemented subscription-based payment system adapting to regional constraints. Initially integrated Stripe for recurring payments, then migrated entire payment flow to PayPal due to regional limitations. Owned end-to-end payment gateway integration with minimal disruption.",
+    role: "Full-stack payment integration owner",
+    challenge:
+      "Regional payment restrictions made the existing Stripe subscription flow unsuitable after product development was already underway.",
+    approach:
+      "Reworked the payment lifecycle around PayPal while preserving the Next.js, tRPC, Drizzle, and PostgreSQL application model and minimizing product disruption.",
+    highlights: [
+      "Owned the complete payment integration lifecycle",
+      "Adapted subscription state to a new provider",
+      "Maintained uninterrupted customer access",
+    ],
     tags: [
       "Next.js",
       "tRPC",
@@ -113,13 +153,27 @@ export const projects = [
     ],
     github: "",
     demo: "https://brandiligence.ai",
-    image: "/images/projects/brandiligence.png",
+    image: "/images/projects/brandiligence-payment-routing.webp",
+    imageAlt: "Abstract visualization of a resilient subscription payment routing system",
     category: "Web",
   },
   {
+    slug: "developer-portfolio",
     title: "Developer Portfolio",
+    eyebrow: "Personal product and writing platform",
+    outcome: "Created a fast, searchable home for engineering work, open source, and technical writing.",
     description:
       "Designed and built a modern developer portfolio with Three.js 3D hero, GSAP scroll animations, MDX-powered blog, and server-side contact form. Features dynamic GitHub contribution fetching, SEO optimization with structured data, and a glassmorphism dark theme.",
+    role: "Design and full-stack development",
+    challenge:
+      "Present a varied engineering profile in a format that remains easy for recruiters to scan and simple to maintain over time.",
+    approach:
+      "Built a statically generated Next.js site with structured content, MDX writing, route-level metadata, and progressively enhanced interactions.",
+    highlights: [
+      "Static-first rendering and route-level SEO",
+      "MDX publishing workflow",
+      "Dynamic GitHub contribution integration",
+    ],
     tags: [
       "Next.js",
       "TypeScript",
@@ -131,7 +185,8 @@ export const projects = [
     ],
     github: "https://github.com/PremPrakashCodes/portfolio",
     demo: "https://premprakash.dev",
-    image: "/images/projects/portfolio.png",
+    image: "/images/projects/developer-portfolio-platform.webp",
+    imageAlt: "Abstract visualization of a connected developer portfolio, publishing, and analytics platform",
     category: "Web",
   },
 ] as const;

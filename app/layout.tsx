@@ -5,6 +5,7 @@ import NavBar from "@/components/nav-bar";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
+import { siteConfig } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +22,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prem Prakash Sharma | Software Developer | AI & Web Development Expert",
-  description:
-    "Software Developer building production-grade web and AI systems. Expert in TypeScript, Python, React.js, Next.js, FastAPI, Node.js, Docker, AWS, and LLM integration.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "Prem Prakash Sharma | Software Developer",
+    template: "%s | Prem Prakash Sharma",
+  },
+  description: siteConfig.description,
   keywords: [
     "Prem Prakash Sharma",
     "Software Developer",
@@ -39,28 +43,19 @@ export const metadata: Metadata = {
   creator: "Prem Prakash Sharma",
   openGraph: {
     title: "Prem Prakash Sharma | Software Developer",
-    description:
-      "Software Developer building production-grade web and AI systems.",
-    url: "https://premprakash.dev/",
-    siteName: "Prem Prakash Sharma",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "https://premprakash.dev/images/profile-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Prem Prakash Sharma - Software Developer",
-      },
-    ],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Prem Prakash Sharma - Software Developer" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prem Prakash Sharma | Software Developer",
-    description:
-      "Software Developer building production-grade web and AI systems.",
+    description: siteConfig.description,
     creator: "@premprakashdev",
-    images: ["https://premprakash.dev/images/profile-image.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -73,7 +68,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: { canonical: "https://premprakash.dev/" },
   category: "Technology",
 };
 
@@ -84,7 +78,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Prem Prakash Sharma",
-    url: "https://premprakash.dev",
+    url: siteConfig.url,
     image: "https://premprakash.dev/images/profile-image.png",
     sameAs: [
       "https://github.com/PremPrakashCodes",
@@ -96,7 +90,7 @@ export default function RootLayout({
       "@type": "Organization",
       name: "BigCircle",
     },
-    email: "premprakashsharma.dev@gmail.com",
+    email: siteConfig.email,
   };
 
   return (

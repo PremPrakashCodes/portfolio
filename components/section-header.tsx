@@ -1,31 +1,23 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface SectionHeaderProps {
   title: string;
   description: string;
+  eyebrow?: string;
+  as?: "h1" | "h2";
+  align?: "left" | "center";
 }
 
-export default function SectionHeader({ title, description }: SectionHeaderProps) {
+export default function SectionHeader({
+  title,
+  description,
+  eyebrow,
+  as: Heading = "h2",
+  align = "left",
+}: SectionHeaderProps) {
   return (
-    <div className="space-y-6 text-center">
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold tracking-tighter text-blue-400"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {title}
-      </motion.h2>
-      <motion.p
-        className="mx-auto max-w-[700px] text-gray-400 md:text-lg/relaxed"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        {description}
-      </motion.p>
+    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+      {eyebrow && <p className="section-kicker">{eyebrow}</p>}
+      <Heading className="section-title mt-3">{title}</Heading>
+      <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground">{description}</p>
     </div>
   );
 }

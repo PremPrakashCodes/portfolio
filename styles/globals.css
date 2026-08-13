@@ -4,86 +4,120 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 220.9 39.3% 11%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71.4% 4.1%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 217 91% 3.5%;
-    --foreground: 210 20% 98%;
-    --card: 217 91% 3.5%;
-    --card-foreground: 210 20% 98%;
-    --popover: 217 91% 3.5%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
-    --secondary: 217 80% 12%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 217 80% 12%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 217 80% 12%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 217 80% 12%;
-    --input: 217 80% 12%;
-    --ring: 216 12.2% 83.9%;
+    --background: 222 48% 5%;
+    --foreground: 216 33% 97%;
+    --card: 222 35% 8%;
+    --card-foreground: 216 33% 97%;
+    --popover: 222 35% 8%;
+    --popover-foreground: 216 33% 97%;
+    --primary: 226 91% 68%;
+    --primary-foreground: 222 48% 5%;
+    --secondary: 221 27% 13%;
+    --secondary-foreground: 216 33% 97%;
+    --muted: 221 27% 13%;
+    --muted-foreground: 219 14% 66%;
+    --accent: 221 27% 15%;
+    --accent-foreground: 216 33% 97%;
+    --destructive: 0 63% 43%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 221 22% 18%;
+    --input: 221 22% 18%;
+    --ring: 226 91% 68%;
+    --signal: 178 78% 56%;
+    --violet: 258 92% 73%;
+    --radius: 0.75rem;
   }
 
   * {
     @apply border-border;
   }
+
+  html {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 84% -8%, hsl(var(--primary) / 0.16), transparent 32rem),
+      radial-gradient(circle at 12% 32%, hsl(var(--signal) / 0.045), transparent 24rem);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+    color: hsl(var(--foreground));
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl;
+    @apply rounded-2xl border border-border bg-card/70;
   }
 
   .glass-card-hover {
-    @apply glass-card hover:border-white/20 transition-all duration-300;
+    @apply glass-card transition-colors hover:border-primary/40;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-white via-blue-200 to-violet-200 bg-clip-text text-transparent;
+  .highlight-text {
+    @apply text-signal;
   }
 
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-kicker {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-signal;
+  }
+
+  .section-title {
+    @apply max-w-3xl text-balance text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-foreground md:text-5xl lg:text-6xl;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary;
+  }
+
+  .hero-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.42) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.42) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+  }
+
+  .hero-grid::after {
+    content: "";
+    position: absolute;
+    top: 6rem;
+    right: -10rem;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--signal) / 0.09));
+    filter: blur(90px);
+    pointer-events: none;
   }
 }
 
-.animate-shimmer {
-  background-size: 200% 100%;
-  animation: shimmer 2s linear infinite;
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 0%;
-  }
-  to {
-    background-position: 200%;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

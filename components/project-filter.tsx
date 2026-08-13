@@ -1,66 +1,43 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useMemo, useState } from "react";
 import { projects } from "@/lib/data";
 import ProjectCard from "./project-card";
+import { cn } from "@/lib/utils";
 
 const categories = ["All", "AI", "Web"] as const;
 
 export default function ProjectFilter() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-
-  const filtered = useMemo(() => {
-    if (activeCategory === "All") return [...projects];
-    return projects.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("All");
+  const filtered = useMemo(
+    () => activeCategory === "All" ? [...projects] : projects.filter((project) => project.category === activeCategory),
+    [activeCategory],
+  );
 
   return (
-    <div>
-      {/* Filter tabs */}
-      <div className="flex flex-wrap gap-2 mb-10">
-        {categories.map((cat) => (
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-wrap gap-2" aria-label="Filter projects">
+        {categories.map((category) => (
           <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              activeCategory === cat
-                ? "text-white"
-                : "text-gray-400 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            {activeCategory === cat && (
-              <motion.div
-                layoutId="activeFilter"
-                className="absolute inset-0 rounded-full bg-blue-500/20 border border-blue-500/30"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
+            key={category}
+            type="button"
+            aria-pressed={activeCategory === category}
+            onClick={() => setActiveCategory(category)}
+            className={cn(
+              "min-h-11 rounded-full border px-5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              activeCategory === category
+                ? "border-foreground/15 bg-foreground text-background shadow-[0_8px_24px_hsl(var(--foreground)/0.08)]"
+                : "border-border bg-card text-muted-foreground hover:text-foreground",
             )}
-            <span className="relative z-10">{cat}</span>
+          >
+            {category}
           </button>
         ))}
       </div>
 
-      {/* Project grid */}
-      <motion.div
-        layout
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-      >
-        <AnimatePresence mode="popLayout">
-          {filtered.map((project) => (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {filtered.map((project) => <ProjectCard key={project.slug} {...project} />)}
+      </div>
     </div>
   );
 }

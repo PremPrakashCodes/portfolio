@@ -1,82 +1,37 @@
-import Image from "next/image";
-import { fetchExternalContributions } from "@/lib/github";
-import { FaStar } from "react-icons/fa";
-import ScrollAnimation from "./scroll-animation";
+import { ArrowUpRight, GitPullRequest, Star } from "lucide-react";
+import { openSourceHighlights } from "@/lib/site";
 
-export default async function ContributionsGrid() {
-  const contributions = await fetchExternalContributions();
-
-  if (contributions.length === 0) return null;
-
+export default function ContributionsGrid() {
   return (
-    <ScrollAnimation
-      animation="stagger"
-      className="columns-1 md:columns-2 gap-6"
-    >
-      {contributions.map((repo) => (
-        <div key={repo.repo} className="glass-card p-6 break-inside-avoid mb-6">
-          <div className="flex items-center gap-3 pb-4 mb-3 border-b border-white/5">
-            <Image
-              src={repo.ownerAvatar}
-              alt=""
-              width={32}
-              height={32}
-              className="w-8 h-8 rounded-full flex-shrink-0 ring-1 ring-white/10"
-              unoptimized
-            />
-            <a
-              href={repo.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-semibold text-white/90 hover:text-blue-400 transition-colors min-w-0 truncate"
-            >
-              {repo.repo}
-            </a>
-            <span className="flex items-center gap-1 text-xs text-amber-400 flex-shrink-0 ml-auto">
-              <FaStar className="w-3 h-3" />
-              {repo.stars.toLocaleString()}
+    <div className="border-y border-border">
+      {openSourceHighlights.map((item, index) => (
+        <article key={item.repository} className="border-b border-border py-8 last:border-b-0 first:pt-0 lg:first:pt-8">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="font-mono text-xs text-muted-foreground">0{index + 1}</p>
+              <h3 className="mt-3 text-xl font-medium tracking-tight text-foreground md:text-2xl">{item.repository}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{item.context}</p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1 font-mono text-xs text-primary">
+              <Star aria-hidden="true" className="size-3" />
+              {item.stars}
             </span>
           </div>
-          <ul className="space-y-0.5">
-            {repo.prs.map((pr) => {
-              const dateSource = pr.mergedAt ?? pr.createdAt;
-              const dateStr = new Date(dateSource).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              });
-              return (
-                <li key={pr.url}>
-                  <a
-                    href={pr.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-2 -mx-2 px-2 py-2 rounded-md hover:bg-white/5 transition-colors"
-                  >
-                    <span
-                      className={`mt-0.5 px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0 ${
-                        pr.state === "merged"
-                          ? "bg-violet-500/10 text-violet-400 border border-violet-500/20"
-                          : "bg-green-500/10 text-green-400 border border-green-500/20"
-                      }`}
-                    >
-                      {pr.state}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm text-gray-300 group-hover:text-white transition-colors">
-                        {pr.title}
-                      </div>
-                      <div className="mt-0.5 text-xs text-gray-500">
-                        {dateStr}
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+          <p className="mt-5 max-w-3xl leading-7 text-muted-foreground">{item.summary}</p>
+          <p className="mt-4 flex items-center gap-2 text-sm font-medium text-foreground">
+            <GitPullRequest aria-hidden="true" className="size-4 text-signal" />
+            {item.impact}
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            {item.links.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="link-arrow py-1">
+                {link.label}
+                <ArrowUpRight aria-hidden="true" className="size-4" />
+              </a>
+            ))}
+          </div>
+        </article>
       ))}
-    </ScrollAnimation>
+    </div>
   );
 }
