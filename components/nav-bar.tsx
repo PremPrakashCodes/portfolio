@@ -31,17 +31,21 @@ export default function NavBar() {
   useEffect(() => setIsMenuOpen(false), [pathname]);
 
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors", scrolled || isMenuOpen ? "border-border bg-background/90 backdrop-blur-xl" : "bg-background/55 backdrop-blur-sm")}>
+    <header className={cn("fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors", scrolled || isMenuOpen ? "border-border bg-background/92 backdrop-blur-xl" : "bg-background/30 backdrop-blur-sm")}>
       <a href="#main-content" className="sr-only rounded-md bg-foreground px-4 py-2 text-background focus:not-sr-only focus:absolute focus:left-4 focus:top-4">
         Skip to main content
       </a>
 
-      <nav className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6" aria-label="Primary navigation">
-        <Link href="/" className="text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-primary md:text-base">
-          Prem Prakash
+      <nav className="container mx-auto flex h-[72px] items-center justify-between px-4 md:px-6" aria-label="Primary navigation">
+        <Link href="/" className="group flex items-center gap-3 font-mono text-foreground">
+          <span className="grid size-8 place-items-center border border-primary/40 bg-primary/5 text-[0.62rem] font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">PP</span>
+          <span className="hidden flex-col sm:flex">
+            <strong className="text-[0.68rem] font-medium uppercase tracking-[0.14em]">Prem Prakash</strong>
+            <small className="text-[0.52rem] tracking-[0.16em] text-muted-foreground">SYSTEMS / AI</small>
+          </span>
         </Link>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => {
             const isActive = link.href.includes("#")
               ? false
@@ -53,13 +57,13 @@ export default function NavBar() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={cn("rounded-sm px-1 py-2 text-sm transition-colors hover:text-foreground", isActive ? "text-foreground" : "text-muted-foreground")}
+                className={cn("px-1 py-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] transition-colors hover:text-primary", isActive ? "text-primary" : "text-muted-foreground")}
               >
                 {link.label}
               </Link>
             );
           })}
-          <Button variant="outline" size="sm" asChild className="rounded-full">
+          <Button variant="outline" size="sm" asChild className="rounded-none font-mono text-[0.68rem] uppercase tracking-[0.1em]">
             <a href="/Prem_Prakash_Sharma_Resume.pdf" target="_blank" rel="noreferrer">
               <Download data-icon="inline-start" />
               Résumé
@@ -73,10 +77,10 @@ export default function NavBar() {
       </nav>
 
       {isMenuOpen && (
-        <nav id="mobile-navigation" className="border-t border-border bg-background px-4 pb-6 pt-3 lg:hidden" aria-label="Mobile navigation">
+        <nav id="mobile-navigation" className="border-t border-border bg-background/95 px-4 pb-6 pt-3 backdrop-blur-xl lg:hidden" aria-label="Mobile navigation">
           <div className="container mx-auto flex flex-col">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="flex min-h-12 items-center border-b border-border text-base text-foreground">
+              <Link key={link.href} href={link.href} className="flex min-h-12 items-center border-b border-border font-mono text-sm uppercase tracking-[0.1em] text-foreground">
                 {link.label}
               </Link>
             ))}

@@ -46,10 +46,14 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="overflow-hidden rounded-2xl border-border bg-card/65 shadow-[0_30px_100px_hsl(var(--primary)/0.08)]">
+    <Card className="relative overflow-hidden rounded-none border-border bg-card/55 shadow-none">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-signal via-primary to-transparent" />
       <CardHeader className="border-b border-border p-6 md:p-8">
-        <p className="section-kicker">Project brief</p>
-        <CardTitle className="mt-2 text-2xl font-medium tracking-tight md:text-3xl">Share the essentials.</CardTitle>
+        <div className="flex items-center justify-between gap-4">
+          <p className="section-kicker">Project brief / Input</p>
+          <span className="flex items-center gap-2 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-primary"><i className="size-1.5 bg-primary not-italic" /> Channel open</span>
+        </div>
+        <CardTitle className="mt-3 text-2xl font-medium tracking-tight md:text-3xl">Share the essentials.</CardTitle>
         <CardDescription className="max-w-lg text-sm leading-6">
           A few useful details are enough. Please don&apos;t include passwords,
           API keys, or other sensitive information.
@@ -58,6 +62,11 @@ export default function ContactForm() {
       <CardContent className="p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
+            <ol className="grid grid-cols-3 border-y border-border py-3 font-mono text-[0.55rem] uppercase tracking-[0.1em] text-muted-foreground" aria-label="Message workflow">
+              <li><span className="text-primary">01</span> Context</li>
+              <li className="border-l border-border pl-3"><span className="text-primary">02</span> Validate</li>
+              <li className="border-l border-border pl-3"><span className="text-primary">03</span> Transmit</li>
+            </ol>
             <div className="grid gap-6 sm:grid-cols-2">
               <FormField
                 control={form.control}
@@ -66,7 +75,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input autoComplete="name" placeholder="Your name" className="h-12 rounded-xl bg-background/70" {...field} />
+                      <Input autoComplete="name" placeholder="Your name" className="h-12 rounded-none bg-background/70 font-mono text-sm" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -79,7 +88,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" autoComplete="email" inputMode="email" placeholder="you@company.com" className="h-12 rounded-xl bg-background/70" {...field} />
+                      <Input type="email" autoComplete="email" inputMode="email" placeholder="you@company.com" className="h-12 rounded-none bg-background/70 font-mono text-sm" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,7 +108,7 @@ export default function ContactForm() {
                   <FormControl>
                     <Textarea
                       placeholder="The goal, current challenge, timeline, and where you need help…"
-                      className="min-h-48 resize-y rounded-xl bg-background/70 leading-6"
+                      className="min-h-48 resize-y rounded-none bg-background/70 leading-6"
                       {...field}
                     />
                   </FormControl>
@@ -114,7 +123,7 @@ export default function ContactForm() {
                 role="status"
                 aria-live="polite"
                 className={cn(
-                  "rounded-xl border p-4 text-sm leading-6",
+                  "border p-4 text-sm leading-6",
                   submitResult.success
                     ? "border-signal/30 bg-signal/10 text-signal"
                     : "border-destructive/40 bg-destructive/10 text-destructive-foreground",
@@ -126,7 +135,7 @@ export default function ContactForm() {
 
             <div className="flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs leading-5 text-muted-foreground">I usually reply with questions or a concrete next step.</p>
-              <Button type="submit" size="lg" disabled={isSubmitting} className="rounded-full sm:min-w-44">
+              <Button type="submit" size="lg" disabled={isSubmitting} className="rounded-none sm:min-w-44">
                 {isSubmitting ? (
                   <>
                     <Loader2 data-icon="inline-start" className="animate-spin" />

@@ -3,9 +3,9 @@ export const siteConfig = {
   shortName: "Prem Prakash",
   url: "https://premprakash.dev",
   email: "premprakashsharma.dev@gmail.com",
-  title: "Software Developer building production AI systems",
+  title: "AI Engineer building production intelligence systems",
   description:
-    "Software Developer building production AI systems, type-safe APIs, and scalable backend platforms with Python, TypeScript, FastAPI, Node.js, and AWS.",
+    "AI Engineer building agentic workflows, observable LLM applications, and event-driven backend systems with Python, TypeScript, FastAPI, Node.js, and AWS.",
 } as const;
 
 export const proofPoints = [

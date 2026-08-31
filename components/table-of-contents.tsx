@@ -44,9 +44,9 @@ export default function TableOfContents({ content }: { content: string }) {
           <a
             href={`#${heading.id}`}
             className={cn(
-              "grid grid-cols-[1.5rem_1fr] gap-2 rounded-md py-1.5 text-sm leading-5 transition-colors",
+              "grid grid-cols-[1.5rem_1fr] gap-2 border-l border-transparent py-1.5 pl-2 text-sm leading-5 transition-colors",
               heading.level === 3 && "pl-3",
-              activeId === heading.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
+              activeId === heading.id ? "border-primary bg-primary/5 text-primary" : "text-muted-foreground hover:border-border hover:text-foreground",
             )}
           >
             <span className="font-mono text-[0.65rem] text-current/60">{String(index + 1).padStart(2, "0")}</span>
@@ -59,7 +59,7 @@ export default function TableOfContents({ content }: { content: string }) {
 
   return (
     <>
-      <details className="group rounded-xl border border-border bg-card/50 p-5 lg:hidden">
+      <details className="group border border-border bg-card/50 p-5 lg:hidden">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-foreground">
           On this page
           <ChevronDown aria-hidden="true" className="size-4 transition-transform group-open:rotate-180" />

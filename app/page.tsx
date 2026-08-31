@@ -15,7 +15,7 @@ const profilePageJsonLd = {
   mainEntity: {
     "@type": "Person",
     name: "Prem Prakash Sharma",
-    jobTitle: "Software Developer",
+    jobTitle: "AI Engineer",
     url: "https://premprakash.dev",
     knowsAbout: [
       "Artificial intelligence",

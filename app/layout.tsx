@@ -25,14 +25,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Prem Prakash Sharma | Software Developer",
+    default: "Prem Prakash Sharma | AI Engineer",
     template: "%s | Prem Prakash Sharma",
   },
   description: siteConfig.description,
   keywords: [
     "Prem Prakash Sharma",
-    "Software Developer",
-    "AI Developer",
+    "AI Engineer",
+    "Software Engineer",
     "Full Stack Developer",
     "TypeScript Developer",
     "Python Developer",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Prem Prakash Sharma" }],
   creator: "Prem Prakash Sharma",
   openGraph: {
-    title: "Prem Prakash Sharma | Software Developer",
+    title: "Prem Prakash Sharma | AI Engineer",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prem Prakash Sharma | Software Developer",
+    title: "Prem Prakash Sharma | AI Engineer",
     description: siteConfig.description,
     creator: "@premprakashdev",
     images: ["/opengraph-image"],
@@ -86,7 +86,7 @@ export default function RootLayout({
       "https://www.linkedin.com/in/premprakashsharma",
       "https://twitter.com/premprakashdev",
     ],
-    jobTitle: "Software Developer",
+    jobTitle: "AI Engineer",
     worksFor: {
       "@type": "Organization",
       name: "BigCircle",

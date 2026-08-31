@@ -60,11 +60,11 @@ export default function ExperiencePage() {
               I work across backend, AI, and product engineering—turning complex workflows into production software that is observable, maintainable, and useful.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href="/Prem_Prakash_Sharma_Resume.pdf" target="_blank" rel="noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-full")}>
+              <a href="/Prem_Prakash_Sharma_Resume.pdf" target="_blank" rel="noreferrer" className={cn(buttonVariants({ size: "lg" }), "rounded-none")}>
                 <Download aria-hidden="true" data-icon="inline-start" />
                 View résumé
               </a>
-              <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full")}>
+              <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-none")}>
                 Start a conversation
                 <ArrowRight aria-hidden="true" data-icon="inline-end" />
               </Link>
@@ -161,7 +161,8 @@ export default function ExperiencePage() {
       </section>
 
       <section className="container mx-auto mt-24 px-4 md:mt-32 md:px-6" aria-labelledby="experience-cta-title">
-        <Card className="overflow-hidden rounded-3xl border-primary/20 bg-card/70 shadow-[0_28px_90px_hsl(var(--primary)/0.08)]">
+        <Card className="relative overflow-hidden rounded-none border-primary/20 bg-card/55 shadow-none">
+          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-signal via-primary to-transparent" />
           <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
             <div className="flex flex-col justify-between">
               <CardHeader className="p-7 md:p-10 lg:p-12">
@@ -177,11 +178,11 @@ export default function ExperiencePage() {
               </CardHeader>
 
               <CardFooter className="flex flex-wrap gap-3 px-7 pb-8 pt-0 md:px-10 md:pb-10 lg:px-12 lg:pb-12">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "rounded-full")}>
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "rounded-none")}>
                   Start a conversation
                   <ArrowRight aria-hidden="true" data-icon="inline-end" />
                 </Link>
-                <Link href="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full bg-transparent")}>
+                <Link href="/projects" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-none bg-transparent")}>
                   View selected work
                 </Link>
               </CardFooter>
@@ -191,7 +192,7 @@ export default function ExperiencePage() {
               <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,hsl(var(--primary)/0.16),transparent_18rem)]" />
               <div className="relative flex h-full flex-col">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  <span className="size-2 rounded-full bg-signal shadow-[0_0_16px_hsl(var(--signal)/0.65)]" />
+                  <span className="size-2 bg-signal shadow-[0_0_16px_hsl(var(--signal)/0.65)]" />
                   Open to thoughtful opportunities
                 </div>
 
@@ -199,7 +200,7 @@ export default function ExperiencePage() {
                 <ul className="mt-6 border-y border-border">
                   {collaborationStrengths.map((item, index) => (
                     <li key={item} className="flex items-center gap-4 border-b border-border py-4 last:border-b-0">
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/10 font-mono text-xs text-primary">0{index + 1}</span>
+                      <span className="flex size-8 shrink-0 items-center justify-center border border-primary/25 bg-primary/10 font-mono text-xs text-primary">0{index + 1}</span>
                       <span className="flex-1 text-sm font-medium text-foreground">{item}</span>
                       <Check aria-hidden="true" className="size-4 text-signal" />
                     </li>

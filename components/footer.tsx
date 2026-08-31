@@ -13,35 +13,32 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10">
+    <footer className="border-t border-border bg-card/30">
       <div className="container mx-auto px-4 md:px-6">
-        {/* Top section */}
-        <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 gap-10 py-14 md:grid-cols-[1.4fr_0.7fr_0.7fr]">
+          <div className="flex flex-col gap-3">
             <Link
               href="/"
-              className="text-lg font-semibold text-blue-400 hover:opacity-80 transition-opacity"
+              className="font-mono text-sm font-medium uppercase tracking-[0.16em] text-primary transition-opacity hover:opacity-80"
             >
-              Prem Prakash
+              PP / AI Systems
             </Link>
-            <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              Software Developer building production-grade web and AI systems.
-              Let&apos;s build something together.
+            <p className="max-w-sm text-sm leading-6 text-muted-foreground">
+              Designing the path from probabilistic intelligence to dependable
+              software. Built with observability, failure modes, and humans in mind.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-              Links
+            <h3 className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-foreground">
+              Navigate
             </h3>
             <nav className="flex flex-col gap-2">
               {footerLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-gray-500 hover:text-white transition-colors w-fit"
+                  className="w-fit text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -49,9 +46,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Social */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+            <h3 className="mb-4 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-foreground">
               Connect
             </h3>
             <div className="flex flex-col gap-2">
@@ -61,9 +57,9 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors w-fit"
+                  className="flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
-                  <link.icon className="w-4 h-4" />
+                  <link.icon className="size-4" />
                   {link.label}
                 </a>
               ))}
@@ -71,13 +67,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/5 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="text-gray-500 text-xs">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border py-6 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-muted-foreground sm:flex-row">
+          <div>
             &copy; {currentYear} Prem Prakash Sharma. All rights reserved.
           </div>
-          <div className="text-gray-600 text-xs flex items-center gap-1">
-            Built with Next.js, TypeScript, and care
+          <div className="flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-primary" />
+            System operational · Next.js / TypeScript
           </div>
         </div>
       </div>

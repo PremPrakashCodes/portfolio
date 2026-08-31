@@ -53,7 +53,7 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
             <div className="max-w-4xl">
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-[0.7rem] text-primary">
+                  <span key={tag} className="border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-primary">
                     {tag}
                   </span>
                 ))}
@@ -66,7 +66,7 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
               </p>
             </div>
 
-            <dl className="grid grid-cols-2 gap-x-8 gap-y-3 border-y border-border py-5 text-sm lg:grid-cols-1 lg:border-y-0 lg:border-l lg:py-0 lg:pl-8">
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-4 border-y border-border py-5 font-mono text-[0.65rem] uppercase tracking-[0.08em] lg:grid-cols-1 lg:border-y-0 lg:border-l lg:py-0 lg:pl-8">
               <div>
                 <dt className="sr-only">Published</dt>
                 <dd className="flex items-center gap-2 whitespace-nowrap text-muted-foreground">
@@ -85,16 +85,18 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
           </div>
 
           {post.image && (
-            <figure className="relative mt-12 aspect-[16/8.5] overflow-hidden rounded-2xl border border-border bg-card shadow-[0_30px_100px_hsl(var(--primary)/0.1)] md:mt-16">
+            <figure className="relative mt-12 aspect-[16/8.5] overflow-hidden border border-border bg-card md:mt-16">
               <Image
                 src={post.image}
                 alt={`Cover illustration for ${post.title}`}
                 fill
                 priority
-                className="object-cover"
+                className="object-cover opacity-85 saturate-[0.8]"
                 sizes="(max-width: 1280px) 100vw, 1152px"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10" aria-hidden="true" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_60%,hsl(var(--background)/0.72))]" aria-hidden="true" />
+              <div className="absolute left-4 top-4 border border-border bg-background/85 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm">Editorial signal</div>
+              <div className="absolute bottom-4 right-4 flex items-center gap-2 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-primary"><span className="size-1.5 bg-primary" /> Published</div>
             </figure>
           )}
         </div>
@@ -104,7 +106,7 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,44rem)_15rem] lg:items-start lg:justify-between lg:gap-20">
           <div className="min-w-0">
             <div className="mb-10 flex items-center gap-4 border-y border-border py-5">
-              <Image src="/images/profile-image.png" alt="Prem Prakash Sharma" width={48} height={48} className="size-12 rounded-full border border-border object-cover" />
+              <Image src="/images/profile-image.png" alt="Prem Prakash Sharma" width={48} height={48} className="size-12 border border-border object-cover" />
               <div>
                 <p className="font-medium text-foreground">Prem Prakash Sharma</p>
                 <p className="mt-0.5 text-sm text-muted-foreground">Software developer writing from hands-on experience.</p>
@@ -119,7 +121,8 @@ export default async function BlogPostLayout({ post }: { post: BlogPost }) {
               <MDXContent components={components} />
             </div>
 
-            <footer className="mt-16 border-t border-border pt-8">
+            <footer className="relative mt-16 border border-border bg-card/35 p-6 md:p-8">
+              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-signal via-primary to-transparent" />
               <p className="section-kicker">Continue the conversation</p>
               <h2 className="mt-3 text-3xl font-medium tracking-tight text-foreground">Working through a similar engineering problem?</h2>
               <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">

@@ -15,7 +15,7 @@ export default function ContactPage() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 xl:gap-28">
           <section aria-labelledby="contact-title" className="lg:sticky lg:top-32 lg:self-start">
-            <p className="section-kicker">Start a conversation</p>
+            <p className="section-kicker">Communication channel / Available</p>
             <h1 id="contact-title" className="mt-4 max-w-xl text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-foreground md:text-6xl">
               Let&apos;s build something <span className="highlight-text">useful.</span>
             </h1>
@@ -25,11 +25,15 @@ export default function ContactPage() {
               next step.
             </p>
 
-            <div className="mt-10 border-y border-border py-7">
-              <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">A good fit</p>
-              <ul className="mt-5 flex flex-col gap-4">
-                {goodFit.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm text-foreground">
+            <div className="mt-10 border-x border-t border-border bg-card/25">
+              <div className="flex items-center justify-between border-b border-border px-5 py-3 font-mono text-[0.58rem] uppercase tracking-[0.12em]">
+                <span className="text-muted-foreground">Fit check</span>
+                <span className="text-signal">03 capabilities</span>
+              </div>
+              <ul>
+                {goodFit.map((item, index) => (
+                  <li key={item} className="flex items-center gap-3 border-b border-border px-5 py-4 text-sm text-foreground">
+                    <span className="font-mono text-[0.58rem] text-muted-foreground">0{index + 1}</span>
                     <CheckCircle2 aria-hidden="true" className="size-4 shrink-0 text-signal" />
                     {item}
                   </li>
@@ -57,7 +61,7 @@ export default function ContactPage() {
             </div>
             <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
               {socialLinks.filter((link) => link.label !== "Email").map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group inline-flex min-h-12 items-center justify-between gap-4 rounded-full border border-border bg-card/50 px-5 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group inline-flex min-h-12 items-center justify-between gap-4 border border-border bg-card/50 px-5 font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary">
                   <span className="flex items-center gap-2">
                     <link.icon aria-hidden="true" className="size-4" />
                     {link.label}
