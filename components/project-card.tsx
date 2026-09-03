@@ -25,6 +25,7 @@ type ProjectCardProps = {
 };
 
 const systemPaths: Record<string, readonly string[]> = {
+  "document-intelligence": ["Upload", "Extract", "Normalize", "Verify"],
   ubik: ["Intent", "Planner", "Tools", "Action"],
   "document-classification": ["Webhook", "Queue", "OCR", "Classify"],
   brandiligence: ["Checkout", "PayPal", "Webhook", "Access"],

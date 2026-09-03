@@ -58,6 +58,43 @@ export const socialLinks = [
 
 export const projects = [
   {
+    slug: "document-intelligence",
+    title: "Document Intelligence",
+    eyebrow: "Auditable PDF table extraction",
+    outcome: "Made every extracted table value traceable back to the exact characters on the page it came from.",
+    description:
+      "Built a PDF table extraction platform where each cell keeps both readings that produced it. PyMuPDF owns deterministic PDF data - geometry, exact text, coordinates - while Azure Document Intelligence owns document structure, and a geometry-only normalization layer joins them with no LLM and no fuzzy string matching. Selecting a cell in the React viewer zooms the rendered page to it and shows what each source read, which one won, and the geometry behind that decision.",
+    role: "Architecture, extraction pipeline, and viewer",
+    challenge:
+      "OCR output is unverifiable by default: a table arrives as plain values with no way to check any of them against the document, and the cells most likely to be wrong look exactly like the ones that are right.",
+    approach:
+      "Associated words to cells by area containment rather than IoU, kept both the Azure and PyMuPDF readings on every cell with the method and confidence that chose between them, and degraded to a partial record - text and coordinates intact - when structure extraction failed, so it could be re-run later.",
+    highlights: [
+      "100% of populated cells resolved against the PDF text layer on the reference document",
+      "Provenance viewer that zooms to a selected cell and flags only the exceptions worth reviewing",
+      "Durable BullMQ-on-Postgres job queue, so extraction runs off the request path without Redis",
+      "260 tests across Python and TypeScript, running with no network and no Postgres",
+    ],
+    tags: [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "PyMuPDF",
+      "Azure Document Intelligence",
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "BullMQ",
+      "Cloudflare R2",
+    ],
+    github: "https://github.com/PremPrakashCodes/document-intelligence",
+    demo: "",
+    image: "/images/projects/document-intelligence-provenance-v2.webp",
+    imageAlt: "A document table flowing through dual extraction streams into a verified table cell with source provenance",
+    category: "AI",
+  },
+  {
     slug: "ubik",
     title: "Ubik",
     eyebrow: "Multi-agent desktop assistant",
