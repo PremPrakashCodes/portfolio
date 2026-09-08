@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import { ComponentPropsWithoutRef } from "react";
 import CodeBlock from "./code-block";
+import MermaidDiagram from "./mermaid-diagram";
 import { cn } from "@/lib/utils";
 
 function headingId(children: React.ReactNode) {
@@ -42,6 +43,7 @@ function mdxComponents(components: MDXComponents): MDXComponents {
     pre: (props: ComponentPropsWithoutRef<"pre">) => <CodeBlock {...props} />,
     blockquote: (props: ComponentPropsWithoutRef<"blockquote">) => <blockquote className="my-10 border-l-2 border-signal pl-6 text-xl italic leading-9 text-foreground/80" {...props} />,
     Callout,
+    Mermaid: MermaidDiagram,
     ...components,
   };
 }

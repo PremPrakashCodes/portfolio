@@ -61,19 +61,19 @@ export const projects = [
     slug: "document-intelligence",
     title: "Document Intelligence",
     eyebrow: "Auditable PDF table extraction",
-    outcome: "Made every extracted table value traceable back to the exact characters on the page it came from.",
+    outcome: "Extract PDF tables with source provenance, geometric text matching, and a review interface that connects values to the original document.",
     description:
       "Built a PDF table extraction platform where each cell keeps both readings that produced it. PyMuPDF owns deterministic PDF data - geometry, exact text, coordinates - while Azure Document Intelligence owns document structure, and a geometry-only normalization layer joins them with no LLM and no fuzzy string matching. Selecting a cell in the React viewer zooms the rendered page to it and shows what each source read, which one won, and the geometry behind that decision.",
     role: "Architecture, extraction pipeline, and viewer",
     challenge:
-      "OCR output is unverifiable by default: a table arrives as plain values with no way to check any of them against the document, and the cells most likely to be wrong look exactly like the ones that are right.",
+      "Azure Document Intelligence can identify a table’s rows, columns, and merged headers while misreading individual values. A number such as 99,999 can be returned as 99.999, or a nil-marker dash can be omitted. The system needs to preserve source readings and make discrepancies inspectable before extracted data is used downstream.",
     approach:
-      "Associated words to cells by area containment rather than IoU, kept both the Azure and PyMuPDF readings on every cell with the method and confidence that chose between them, and degraded to a partial record - text and coordinates intact - when structure extraction failed, so it could be re-run later.",
+      "Use Azure DI for table structure and PyMuPDF for embedded text and page geometry. Normalize both outputs into a shared coordinate system, associate words with cells by containment, and record the rule used to select each value. Retain successful PDF extraction as a partial record when Azure fails.",
     highlights: [
-      "100% of populated cells resolved against the PDF text layer on the reference document",
-      "Provenance viewer that zooms to a selected cell and flags only the exceptions worth reviewing",
+      "570 of 570 populated cells matched to PDF text in the synthetic fixture; this is not a general extraction-accuracy benchmark",
+      "Cell-level provenance, source-region highlighting, and navigation between unconfirmed or low-confidence readings",
       "Durable BullMQ-on-Postgres job queue, so extraction runs off the request path without Redis",
-      "260 tests across Python and TypeScript, running with no network and no Postgres",
+      "Repository-documented suites of 168 Python and 92 frontend tests, including matching and zoom regression coverage",
     ],
     tags: [
       "Python",

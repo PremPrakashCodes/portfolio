@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Github } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import DocumentIntelligenceDetails from "@/components/document-intelligence-details";
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
 
@@ -35,6 +36,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
+  const hasExtractionDetails = project.slug === "document-intelligence";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,8 +81,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <dl className="border-y border-border py-5 font-mono text-[0.62rem] uppercase tracking-[0.12em] lg:border-y-0 lg:border-l lg:py-0 lg:pl-7">
               <div className="flex items-center justify-between gap-4">
-                <dt className="text-muted-foreground">System state</dt>
-                <dd className="flex items-center gap-2 text-primary"><span className="size-1.5 bg-primary" /> Verified</dd>
+                <dt className="text-muted-foreground">{hasExtractionDetails ? "Repository" : "System state"}</dt>
+                <dd className="flex items-center gap-2 text-primary"><span className="size-1.5 bg-primary" /> {hasExtractionDetails ? "Source available" : "Verified"}</dd>
               </div>
               <div className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4">
                 <dt className="text-muted-foreground">Case ID</dt>
@@ -90,6 +92,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            {hasExtractionDetails && <Link href="/blog/building-traceable-pdf-table-extraction" className="link-arrow px-3 py-2">Read technical article <ArrowUpRight aria-hidden="true" className="size-4" /></Link>}
             {project.demo && (
               <Button asChild className="rounded-none">
                 <a href={project.demo} target="_blank" rel="noreferrer">
@@ -137,7 +140,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <div className="border-t border-border py-6 md:border-l md:border-t-0 md:pl-8">
               <dt className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">Stack</dt>
-              <dd className="mt-2 text-foreground">{project.tags.slice(0, 4).join(" · ")}</dd>
+              <dd className="mt-2 text-foreground">{(hasExtractionDetails ? project.tags : project.tags.slice(0, 4)).join(" · ")}</dd>
             </div>
           </dl>
 
@@ -171,6 +174,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </section>
             </div>
           </div>
+          {hasExtractionDetails && <DocumentIntelligenceDetails />}
         </div>
       </article>
     </main>
